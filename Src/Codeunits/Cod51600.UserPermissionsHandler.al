@@ -7,7 +7,9 @@ codeunit 51600 "NDS User Permissions Handler"
     begin
         IsVisible := true;
         IsEditable := true;
-        if MatrixCodeRec.Get(MatrixCode, TableId) then
+        MatrixCodeRec.SetRange(Code, MatrixCode);
+        MatrixCodeRec.SetRange("Table Id", TableId);
+        if MatrixCodeRec.FindFirst() then
             if UserPermMatrixRec.Get(UserID, MatrixCode) then begin
                 IsVisible := UserPermMatrixRec.Visible;
                 IsEditable := UserPermMatrixRec.Editable;
