@@ -4,7 +4,7 @@ page 51601 "NDS User Permission Code's"
     Caption = 'User Permission Codes';
     PageType = List;
     SourceTable = "NDS User Permission Code's";
-    UsageCategory = ReportsAndAnalysis;
+    UsageCategory = Lists;
 
     layout
     {
