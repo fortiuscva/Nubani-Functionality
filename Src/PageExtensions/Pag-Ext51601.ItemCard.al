@@ -14,14 +14,9 @@ pageextension 51601 "NDS Item Card" extends "Item Card"
         }
     }
     trigger OnOpenPage()
-    var
-        RecRef: RecordRef;
-        TableId: Integer;
     begin
-        RecRef.GetTable(Rec);
-        TableId := RecRef.Number;
-        UserPermissionHandler.GetVisibilityAndEditability(UserId(), TableId, 'Unit Cost on Item Card', IsUnitCostVisible, IsUnitCostEditable);
-        UserPermissionHandler.GetVisibilityAndEditability(UserId, TableId, 'Blocked on Item Card', IsBlockedVisible, IsBlockedEditable);
+        UserPermissionHandler.GetVisibilityAndEditability(UserId, Database::Item, 'Unit Cost on Item Card', IsUnitCostVisible, IsUnitCostEditable);
+        UserPermissionHandler.GetVisibilityAndEditability(UserId, Database::Item, 'Blocked on Item Card', IsBlockedVisible, IsBlockedEditable);
     end;
 
     var
