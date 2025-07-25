@@ -1,6 +1,6 @@
-table 51600 "NDS Matrix Code"
+table 51600 "NDS Permission Code"
 {
-    Caption = 'Matrix Code';
+    Caption = 'Permission Code';
     DataClassification = ToBeClassified;
 
     fields
