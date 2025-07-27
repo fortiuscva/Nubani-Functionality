@@ -16,7 +16,7 @@ page 51600 "NDS Permission Code"
                 {
                     ToolTip = 'Specifies the value of the Matrix Code field.', Comment = '%';
                 }
-                field("Table ID"; Rec."Table ID")
+                field("Page ID"; Rec."Page ID")
                 {
                     ToolTip = 'Specifies the value of the Table ID field.', Comment = '%';
                 }
