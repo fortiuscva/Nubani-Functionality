@@ -15,7 +15,7 @@ pageextension 51600 "NDS User Setup" extends "User Setup"
                     Promoted = true;
                     PromotedOnly = true;
                     PromotedIsBig = true;
-                    RunObject = Page "NDS User Permission Code's";
+                    RunObject = Page "NDS User Permission Codes";
                     RunPageLink = "User ID" = FIELD("User ID");
                 }
             }

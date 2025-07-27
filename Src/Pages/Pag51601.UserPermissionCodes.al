@@ -1,9 +1,9 @@
-page 51601 "NDS User Permission Code's"
+page 51601 "NDS User Permission Codes"
 {
     ApplicationArea = All;
     Caption = 'User Permission Codes';
     PageType = List;
-    SourceTable = "NDS User Permission Code's";
+    SourceTable = "NDS User Permission Codes";
     UsageCategory = Lists;
 
     layout
