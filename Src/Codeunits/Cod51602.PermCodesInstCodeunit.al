@@ -26,6 +26,10 @@ codeunit 51602 "NDS Perm. Codes Inst. Codeunit"
 
     local procedure HandleReinstall()
     begin
-
+        PermissionCodesHandler.IntallPermissionCodes();
     end;
+
+    var
+        PermissionCodesHandler: Codeunit "NDS Permissions Codes Handler";
+
 }
