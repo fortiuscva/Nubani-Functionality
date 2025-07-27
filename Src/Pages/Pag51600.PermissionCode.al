@@ -1,9 +1,9 @@
-page 51600 "NDS Matrix Code"
+page 51600 "NDS Permission Code"
 {
     ApplicationArea = All;
-    Caption = 'Matrix Code';
+    Caption = 'Permission Code';
     PageType = List;
-    SourceTable = "NDS Matrix Code";
+    SourceTable = "NDS Permission Code";
     UsageCategory = Lists;
 
     layout
@@ -16,7 +16,7 @@ page 51600 "NDS Matrix Code"
                 {
                     ToolTip = 'Specifies the value of the Matrix Code field.', Comment = '%';
                 }
-                field("Table ID"; Rec."Table ID")
+                field("Page ID"; Rec."Page ID")
                 {
                     ToolTip = 'Specifies the value of the Table ID field.', Comment = '%';
                 }
