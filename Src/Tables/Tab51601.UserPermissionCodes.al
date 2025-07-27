@@ -1,7 +1,7 @@
-table 51601 "NDS User Permission MatrixCode"
+table 51601 "NDS User Permission Code's"
 {
     DataClassification = ToBeClassified;
-    Caption = 'User Permission Matrix Code';
+    Caption = 'User Permission Codes';
 
     fields
     {
@@ -10,10 +10,10 @@ table 51601 "NDS User Permission MatrixCode"
             Caption = 'User ID';
         }
 
-        field(2; "Matrix Code"; Code[50])
+        field(2; "Permission Code"; Code[50])
         {
-            Caption = 'Matrix Code';
-            TableRelation = "NDS Matrix Code".Code;
+            Caption = 'Permission Code';
+            TableRelation = "NDS Permission Code".Code;
         }
 
         field(3; Visible; Boolean)
@@ -30,7 +30,7 @@ table 51601 "NDS User Permission MatrixCode"
 
     keys
     {
-        key(PK; "User ID", "Matrix Code")
+        key(PK; "User ID", "Permission Code")
         {
             Clustered = true;
         }

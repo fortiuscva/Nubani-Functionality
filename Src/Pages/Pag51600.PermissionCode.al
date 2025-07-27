@@ -1,9 +1,9 @@
-page 51600 "NDS Matrix Code"
+page 51600 "NDS Permission Code"
 {
     ApplicationArea = All;
-    Caption = 'Matrix Code';
+    Caption = 'Permission Code';
     PageType = List;
-    SourceTable = "NDS Matrix Code";
+    SourceTable = "NDS Permission Code";
     UsageCategory = Lists;
 
     layout

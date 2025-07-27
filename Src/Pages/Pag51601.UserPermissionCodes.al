@@ -1,9 +1,9 @@
-page 51601 "NDS User Permission MatrixCode"
+page 51601 "NDS User Permission Code's"
 {
     ApplicationArea = All;
-    Caption = 'User Permission Matrix Code';
+    Caption = 'User Permission Codes';
     PageType = List;
-    SourceTable = "NDS User Permission MatrixCode";
+    SourceTable = "NDS User Permission Code's";
     UsageCategory = ReportsAndAnalysis;
 
     layout
@@ -14,9 +14,10 @@ page 51601 "NDS User Permission MatrixCode"
             {
                 field("User ID"; Rec."User ID")
                 {
+                    visible = false;
                     ToolTip = 'Specifies the value of the User ID field.', Comment = '%';
                 }
-                field("Matrix Code"; Rec."Matrix Code")
+                field("Permission Code"; Rec."Permission Code")
                 {
                     ToolTip = 'Specifies the value of the Matrix Code field.', Comment = '%';
                 }

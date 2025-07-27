@@ -4,15 +4,20 @@ pageextension 51600 "NDS User Setup" extends "User Setup"
     {
         addlast(Navigation)
         {
-            action("NDS UserPermissionMatrixCode")
+            group("NDS Permissions")
             {
-                ApplicationArea = All;
-                Caption = 'User Permission Matrix Code';
-                Promoted = true;
-                PromotedOnly = true;
-                PromotedIsBig = true;
-                RunObject = Page "NDS User Permission MatrixCode";
-                RunPageLink = "User ID" = FIELD("User ID");
+                Caption = 'Permissions';
+                action("NDS Permission Code's")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Permission Codes';
+                    PromotedCategory = process;
+                    Promoted = true;
+                    PromotedOnly = true;
+                    PromotedIsBig = true;
+                    RunObject = Page "NDS User Permission Code's";
+                    RunPageLink = "User ID" = FIELD("User ID");
+                }
             }
         }
     }
