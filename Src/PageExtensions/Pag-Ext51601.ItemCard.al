@@ -15,13 +15,31 @@ pageextension 51601 "NDS Item Card" extends "Item Card"
 
     }
     trigger OnOpenPage()
+    var
+        PermissionCode: Record "NDS Permission Code";
     begin
-        UserPermissionHandler.GetVisibilityAndEditability(UserId, Database::Item, 'Unit Cost on Item Card', IsUnitCostVisible, IsUnitCostEditable);
-        UserPermissionHandler.GetVisibilityAndEditability(UserId, Database::Item, 'Blocked on Item Card', IsBlockedVisible, IsBlockedEditable);
+        PermissionCode.Reset();
+        PermissionCode.SetRange("Page Id", page::"Item Card");
+        if PermissionCode.FindSet() then
+            repeat
+                case PermissionCode.Code of
+                    PermissionCodesHandler.GetUnitCostOnItemCard():
+                        begin
+                            UserPermissionHandler.ApplyUserPermissions(UserId, PermissionCode.Code, IsUnitCostvisible, IsUnitCostEditable);
+                        end;
+                    PermissionCodesHandler.GetBlockedonItemCard():
+                        begin
+                            UserPermissionHandler.ApplyUserPermissions(UserId, PermissionCode.Code, IsBlockedVisible, IsBlockedEditable);
+                        end;
+
+                end;
+            until PermissionCode.Next() = 0;
     end;
 
     var
         UserPermissionHandler: Codeunit "NDS User Permissions Handler";
+        PermissionCodesHandler: Codeunit "NDS Permissions Codes Handler";
+
         IsUnitCostVisible: Boolean;
         IsUnitCostEditable: Boolean;
         IsBlockedVisible: Boolean;
