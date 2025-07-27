@@ -5,13 +5,13 @@ table 51600 "NDS Permission Code"
 
     fields
     {
-        field(1; "Code"; Code[50])
+        field(1; "Code"; Code[100])
         {
             Caption = 'Code';
         }
-        field(2; "Table Id"; Integer)
+        field(2; "Page ID"; Integer)
         {
-            Caption = 'Table Id';
+            Caption = 'Page ID';
         }
     }
     keys

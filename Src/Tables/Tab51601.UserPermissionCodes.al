@@ -1,4 +1,4 @@
-table 51601 "NDS User Permission Code's"
+table 51601 "NDS User Permission Codes"
 {
     DataClassification = ToBeClassified;
     Caption = 'User Permission Codes';
