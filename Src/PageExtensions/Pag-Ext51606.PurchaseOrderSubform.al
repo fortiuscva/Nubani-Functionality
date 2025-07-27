@@ -9,15 +9,36 @@ pageextension 51606 "NDS Purchase Order Subform" extends "Purchase Order Subform
         }
         modify("Direct Unit Cost")
         {
-            Visible = IsDirectUnitVisible;
-            Editable = IsDirectUnitEditable;
+            Visible = IsDirectUnitCostVisible;
+            Editable = IsDirectUnitCostEditable;
         }
     }
+    trigger OnOpenPage()
+    var
+        PermissionCode: Record "NDS Permission Code";
+    begin
+        PermissionCode.Reset();
+        PermissionCode.SetRange("Page Id", page::"Purchase Order Subform");
+        if PermissionCode.FindSet() then
+            repeat
+                case PermissionCode.Code of
+                    PermissionCodesHandler.GetDirectUnitCostOnPurchaseOrderSubform():
+                        begin
+                            UserPermissionHandler.ApplyUserPermissions(UserId, PermissionCode.Code, IsDirectUnitCostVisible, IsDirectUnitCostEditable);
+                        end;
+                    PermissionCodesHandler.GetUnitCostLCYOnPurchaseOrderSubform():
+                        begin
+                            UserPermissionHandler.ApplyUserPermissions(UserId, PermissionCode.Code, IsUnitCostLCYVisible, IsUnitCostLCYEditable);
+                        end;
+                end;
+            until PermissionCode.Next() = 0;
+    end;
+
     var
         UserPermissionHandler: Codeunit "NDS User Permissions Handler";
+        PermissionCodesHandler: Codeunit "NDS Permissions Codes Handler";
         IsUnitCostLCYVisible: Boolean;
         IsUnitCostLCYEditable: Boolean;
-        IsDirectUnitVisible: Boolean;
-        IsDirectUnitEditable: Boolean;
-
+        IsDirectUnitCostVisible: Boolean;
+        IsDirectUnitCostEditable: Boolean;
 }
