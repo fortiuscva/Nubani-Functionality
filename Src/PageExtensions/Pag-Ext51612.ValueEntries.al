@@ -1,12 +1,7 @@
-pageextension 51603 "NDS Item Ledger Entries." extends "Item Ledger Entries"
+pageextension 51612 "NDS Value Entries" extends "Value Entries"
 {
     layout
     {
-        // modify(Dire)
-        // {
-        //     Visible = IsUnitCostvisible;
-        //     Editable = IsUnitCostEditable;
-        // }
         modify("Cost Amount (Expected)")
         {
             Visible = IsCostAmountExpectedVisible;
@@ -17,6 +12,16 @@ pageextension 51603 "NDS Item Ledger Entries." extends "Item Ledger Entries"
             Visible = IsCostAmountActualVisible;
             Editable = IsCostAmountActualEditable;
         }
+        modify("Cost per Unit")
+        {
+            Visible = IsCostPerUnitVisibile;
+            Editable = IsCostPerUnitEditable;
+        }
+        modify("Cost Posted to G/L")
+        {
+            Visible = IsCostPostedToGLVisible;
+            Editable = IsCostPostedToGLEditable;
+        }
 
     }
     trigger OnOpenPage()
@@ -24,17 +29,26 @@ pageextension 51603 "NDS Item Ledger Entries." extends "Item Ledger Entries"
         PermissionCode: Record "NDS Permission Code";
     begin
         PermissionCode.Reset();
-        PermissionCode.SetRange("Page Id", page::"Item Ledger Entries");
+        PermissionCode.SetRange("Page Id", page::"Value Entries");
         if PermissionCode.FindSet() then
             repeat
                 case PermissionCode.Code of
-                    PermissionCodesHandler.GetCostAmountExpectedOnItemLedgerEntries():
+                    PermissionCodesHandler.GetCostAmountExpectedOnValueEntries():
                         begin
                             UserPermissionHandler.ApplyUserPermissions(UserId, PermissionCode.Code, IsCostAmountExpectedVisible, IsCostAmountExpectedEditable);
                         end;
-                    PermissionCodesHandler.GetCostAmountActualOnItemLedgerEntries():
+                    PermissionCodesHandler.GetCostAmountActualOnValueEntries():
                         begin
                             UserPermissionHandler.ApplyUserPermissions(UserId, PermissionCode.Code, IsCostAmountActualVisible, IsCostAmountActualEditable);
+                        end;
+
+                    PermissionCodesHandler.GetCostPerUnitOnValueEntries():
+                        begin
+                            UserPermissionHandler.ApplyUserPermissions(UserId, PermissionCode.Code, IsCostPerUnitVisibile, IsCostPerUnitEditable);
+                        end;
+                    PermissionCodesHandler.GetCostPostedToGLOnValueEntries():
+                        begin
+                            UserPermissionHandler.ApplyUserPermissions(UserId, PermissionCode.Code, IsCostPostedToGLVisible, IsCostPostedToGLEditable);
                         end;
 
                 end;
@@ -44,12 +58,12 @@ pageextension 51603 "NDS Item Ledger Entries." extends "Item Ledger Entries"
     var
         UserPermissionHandler: Codeunit "NDS User Permissions Handler";
         PermissionCodesHandler: Codeunit "NDS Permissions Codes Handler";
-        IsUnitCostVisible: Boolean;
-        IsUnitCostEditable: Boolean;
         IsCostAmountExpectedVisible: Boolean;
         IsCostAmountExpectedEditable: Boolean;
         IsCostAmountActualVisible: Boolean;
         IsCostAmountActualEditable: Boolean;
-
-
+        IsCostPerUnitVisibile: Boolean;
+        IsCostPerUnitEditable: Boolean;
+        IsCostPostedToGLVisible: Boolean;
+        IsCostPostedToGLEditable: Boolean;
 }

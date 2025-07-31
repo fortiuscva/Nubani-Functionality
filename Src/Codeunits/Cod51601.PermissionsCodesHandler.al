@@ -96,7 +96,38 @@ codeunit 51601 "NDS Permissions Codes Handler"
         exit(DirectUnitCostOnPostedPurchaseInvoiceLinesLbl);
     end;
     //529 end;
+    //38 Start
+    procedure GetCostAmountExpectedOnItemLedgerEntries(): Code[100]
+    begin
+        exit(CostAmountExpectedOnItemLedgerEntriesLbl);
+    end;
 
+    procedure GetCostAmountActualOnItemLedgerEntries(): Code[100]
+    begin
+        exit(CostAmountActualOnItemLedgerEntriesLbl);
+    end;
+    //38 end;
+    //5802 Start
+    procedure GetCostAmountExpectedOnValueEntries(): Code[100]
+    begin
+        exit(CostAmountExpectedOnValueEntriesLbl);
+    end;
+
+    procedure GetCostAmountActualOnValueEntries(): Code[100]
+    begin
+        exit(CostAmountActualOnValueEntriesLbl);
+    end;
+
+    procedure GetCostPerUnitOnValueEntries(): Code[100]
+    begin
+        exit(CostPerUnitOnValueEntriesLbl);
+    end;
+
+    procedure GetCostPostedToGLOnValueEntries(): Code[100]
+    begin
+        exit(CostPostedToGLOnValueEntriesLbl);
+    end;
+    //5802 end
     procedure IntallPermissionCodes();
     var
         PermissionCodes: Record "NDS Permission Code";
@@ -152,6 +183,26 @@ codeunit 51601 "NDS Permissions Codes Handler"
 
         if not PermissionCodes.GET(DirectUnitCostOnPostedPurchaseInvoiceLinesLbl) then
             CreatePermissionCode(DirectUnitCostOnPostedPurchaseInvoiceLinesLbl, Page::"Posted Purchase Invoice Lines");
+
+        //38 "Item Ledger Entries"
+        if not PermissionCodes.GET(CostAmountExpectedOnItemLedgerEntriesLbl) then
+            CreatePermissionCode(CostAmountExpectedOnItemLedgerEntriesLbl, Page::"Item Ledger Entries");
+
+        if not PermissionCodes.GET(CostAmountActualOnItemLedgerEntriesLbl) then
+            CreatePermissionCode(CostAmountActualOnItemLedgerEntriesLbl, Page::"Item Ledger Entries");
+
+        //5802 "Value Entries"
+        if not PermissionCodes.GET(CostAmountExpectedOnValueEntriesLbl) then
+            CreatePermissionCode(CostAmountExpectedOnValueEntriesLbl, Page::"Value Entries");
+
+        if not PermissionCodes.GET(CostAmountActualOnValueEntriesLbl) then
+            CreatePermissionCode(CostAmountActualOnValueEntriesLbl, Page::"Value Entries");
+
+        if not PermissionCodes.GET(CostPerUnitOnValueEntriesLbl) then
+            CreatePermissionCode(CostPerUnitOnValueEntriesLbl, Page::"Value Entries");
+
+        if not PermissionCodes.GET(CostPostedToGLOnValueEntriesLbl) then
+            CreatePermissionCode(CostPostedToGLOnValueEntriesLbl, Page::"Value Entries");
     end;
 
     procedure CreatePermissionCode(PermissionCodePar: Code[100]; PageIDPar: Integer);
@@ -198,4 +249,17 @@ codeunit 51601 "NDS Permissions Codes Handler"
         UnitCostLCYOnPostedPurchaseInvoiceLinesLbl: Label 'UNIT COST (LCY) ON POSTED PURCHASE INVOICE LINES';
         DirectUnitCostOnPostedPurchaseInvoiceLinesLbl: Label 'DIRECT UNIT COST ON POSTED PURCHASE INVOICE LINES';
 
+        //38 
+        CostAmountExpectedOnItemLedgerEntriesLbl: Label 'COST AMOUNT (EXPECTED) ON ITEM LEDGER ENTRIES';
+
+        CostAmountActualOnItemLedgerEntriesLbl: Label 'COST AMOUNT (ACTUAL) ON ITEM LEDGER ENTRIES';
+
+        //5802
+        CostAmountExpectedOnValueEntriesLbl: Label 'COST AMOUNT (EXPECTED) ON VALUE ENTRIES';
+
+        CostAmountActualOnValueEntriesLbl: Label 'COST AMOUNT (ACTUAL) ON VALUE ENTRIES';
+
+        CostPerUnitOnValueEntriesLbl: Label 'COST PER UNIT ON VALUE ENTRIES';
+
+        CostPostedToGLOnValueEntriesLbl: Label 'COST POSTED TO GL ON VALUE ENTRIES';
 }
