@@ -7,4 +7,11 @@ codeunit 51603 "NDS Events and Subsribers"
             IsHandled := true;
     end;
 
+    [EventSubscriber(ObjectType::Table, Database::"Sales Line", OnCheckWarehouseOnBeforeShowDialog, '', false, false)]
+    local procedure "Sales Line_OnCheckWarehouseOnBeforeShowDialog"(var SalesLine: Record "Sales Line"; Location: Record Location; var ShowDialog: Option; var DialogText: Text[50])
+    begin
+
+    end;
+
+
 }
