@@ -10,7 +10,15 @@ codeunit 51603 "NDS Events and Subsribers"
     [EventSubscriber(ObjectType::Table, Database::"Sales Line", OnCheckWarehouseOnBeforeShowDialog, '', false, false)]
     local procedure "Sales Line_OnCheckWarehouseOnBeforeShowDialog"(var SalesLine: Record "Sales Line"; Location: Record Location; var ShowDialog: Option; var DialogText: Text[50])
     begin
+        //ShowDialog := 0;
+    end;
+
+    [EventSubscriber(ObjectType::Table, Database::"Purchase Line", OnCheckWarehouseOnBeforeShowDialog, '', false, false)]
+    local procedure "Purchase Line_OnCheckWarehouseOnBeforeShowDialog"(var PurchLine: Record "Purchase Line"; Location2: Record Location; var ShowDialog: Option; var DialogText: Text[50])
+    begin
         ShowDialog := 0;
     end;
+
+
 
 }
