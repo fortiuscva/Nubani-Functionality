@@ -12,6 +12,18 @@ pageextension 51606 "NDS Purchase Order Subform" extends "Purchase Order Subform
             Visible = IsDirectUnitCostVisible;
             Editable = IsDirectUnitCostEditable;
         }
+        modify("Qty. to Receive")
+        {
+            trigger OnBeforeValidate()
+            begin
+                NDSSingleInstance.SetSuppressWhseMgmtWarningMsg(true);
+            end;
+            // There is an subsriber added to codeunit 51603 to suppress warehouse mgmt warning.
+            trigger OnAfterValidate()
+            begin
+                NDSSingleInstance.SetSuppressWhseMgmtWarningMsg(false);
+            end;
+        }
     }
     trigger OnOpenPage()
     var
@@ -35,10 +47,12 @@ pageextension 51606 "NDS Purchase Order Subform" extends "Purchase Order Subform
     end;
 
     var
+        NDSSingleInstance: Codeunit "NDS Single Instance";
         UserPermissionHandler: Codeunit "NDS User Permissions Handler";
         PermissionCodesHandler: Codeunit "NDS Permissions Codes Handler";
         IsUnitCostLCYVisible: Boolean;
         IsUnitCostLCYEditable: Boolean;
         IsDirectUnitCostVisible: Boolean;
         IsDirectUnitCostEditable: Boolean;
+
 }
