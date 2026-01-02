@@ -1,17 +1,7 @@
-pageextension 51613 "NDS Sales Order" extends "Sales Order"
+pageextension 51617 "NDS Sales Order Archive" extends "Sales Order Archive"
 {
     layout
     {
-        addlast(content)
-        {
-            part(ChangeLogEntries; "NDS Sales Order Change Log")
-            {
-                ApplicationArea = Basic, Suite;
-                Editable = false;
-                Enabled = false;
-                SubPageLink = "Primary Key Field 2 Value" = field("No.");
-            }
-        }
         addlast(General)
         {
             field("NDS Driver ID"; Rec."NDS Driver ID")
@@ -24,7 +14,6 @@ pageextension 51613 "NDS Sales Order" extends "Sales Order"
                 Editable = false;
                 ToolTip = 'Specifies the value of the Driver Name field.', Comment = '%';
             }
-
         }
     }
 }
