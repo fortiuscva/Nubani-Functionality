@@ -18,7 +18,4 @@ codeunit 51603 "NDS Events and Subsribers"
     begin
         ShowDialog := 0;
     end;
-
-
-
 }
