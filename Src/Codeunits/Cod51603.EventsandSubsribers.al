@@ -18,24 +18,4 @@ codeunit 51603 "NDS Events and Subsribers"
     begin
         ShowDialog := 0;
     end;
-
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", OnBeforeSalesShptHeaderInsert, '', false, false)]
-    local procedure "Sales-Post_OnBeforeSalesShptHeaderInsert"(var SalesShptHeader: Record "Sales Shipment Header"; SalesHeader: Record "Sales Header"; CommitIsSuppressed: Boolean; var IsHandled: Boolean; var TempWhseRcptHeader: Record "Warehouse Receipt Header" temporary; WhseReceive: Boolean; var TempWhseShptHeader: Record "Warehouse Shipment Header" temporary; WhseShip: Boolean; InvtPickPutaway: Boolean)
-    begin
-        SalesShptHeader."NDS Driver ID" := SalesHeader."NDS Driver ID";
-    end;
-
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", OnBeforeSalesInvHeaderInsert, '', false, false)]
-    local procedure "Sales-Post_OnBeforeSalesInvHeaderInsert"(var SalesInvHeader: Record "Sales Invoice Header"; var SalesHeader: Record "Sales Header"; CommitIsSuppressed: Boolean; var IsHandled: Boolean; WhseShip: Boolean; WhseShptHeader: Record "Warehouse Shipment Header"; InvtPickPutaway: Boolean)
-    begin
-        SalesInvHeader."NDS Driver ID" := SalesHeader."NDS Driver ID";
-    end;
-
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::ArchiveManagement, OnBeforeSalesHeaderArchiveInsert, '', false, false)]
-    local procedure ArchiveManagement_OnBeforeSalesHeaderArchiveInsert(var SalesHeaderArchive: Record "Sales Header Archive"; SalesHeader: Record "Sales Header")
-    begin
-        SalesHeaderArchive."NDS Driver ID" := SalesHeader."NDS Driver ID";
-    end;
-
-
 }
