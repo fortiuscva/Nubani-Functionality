@@ -4,6 +4,7 @@ page 51605 "NDS Order Shipping Document"
     SourceTable = "NDS Order Shipping Header";
     UsageCategory = Documents;
     ApplicationArea = All;
+    Caption = 'Order Shipping Document';
 
     layout
     {
@@ -11,60 +12,135 @@ page 51605 "NDS Order Shipping Document"
         {
             group(General)
             {
-                field("No."; Rec."No.") { }
-                field("Customer Name"; Rec."Customer Name") { }
-                field(Salesperson; Rec."Salesperson") { }
-                field("Order Date"; Rec."Order Date") { }
-                field("Shipping Method"; Rec."Shipping Method") { }
+                field("No."; Rec."No.")
+                {
+
+                    trigger OnAssistEdit()
+                    var
+                        ShippingSetup: Record "NDS Shipping Setup";
+                        NoSeries: Codeunit "No. Series";
+                    begin
+
+                        ShippingSetup.Get();
+                        ShippingSetup.TestField("Shipping Form Nos.");
+
+                        if NoSeries.LookupRelatedNoSeries(
+                            ShippingSetup."Shipping Form Nos.",
+                            Rec."No. Series",
+                            Rec."No.") then begin
+                            Rec.Validate("No.");
+                        end;
+                    end;
+
+                }
+                field("Customer Name"; Rec."Customer Name")
+                {
+                    ApplicationArea = all;
+                }
+                field(Salesperson; Rec."Salesperson")
+                {
+                    ApplicationArea = all;
+                }
+                field("Order Date"; Rec."Order Date")
+                {
+                    ApplicationArea = all;
+                }
+                field("Shipping Method"; Rec."Shipping Method")
+                {
+                    ApplicationArea = all;
+                }
             }
 
             group("Temperature Control")
             {
-                field("Temp Control"; Rec."Temp Control") { }
+                field("Temp Control"; Rec."Temp Control")
+                {
+                    ApplicationArea = all;
+                }
             }
 
             group("Special Instructions")
             {
-                field("Alternate Shipping Address"; Rec."Alternate Shipping Address") { }
-                field("Lift Gate"; Rec."Lift Gate") { }
-                field("Notify Appointment"; Rec."Notify Appointment") { }
-                field(Other; Rec."Other") { }
+                field("Alternate Shipping Address"; Rec."Alternate Shipping Address")
+                {
+                    ApplicationArea = all;
+                }
+                field("Lift Gate"; Rec."Lift Gate")
+                {
+                    ApplicationArea = all;
+                }
+                field("Notify Appointment"; Rec."Notify Appointment")
+                {
+                    ApplicationArea = all;
+                }
+                field(Other; Rec."Other")
+                {
+                    ApplicationArea = all;
+                }
             }
 
             group("Pallet Info")
             {
-                field("Pre-Stack Pallet Count"; Rec."Pre-Stack Pallet Count") { }
-                field("Stacker Assigned"; Rec."Stacker Assigned") { }
-                field("Post-Stack Pallet Count"; Rec."Post-Stack Pallet Count") { }
-                field("Reviewed By"; Rec."Reviewed By") { }
+                field("Pre-Stack Pallet Count"; Rec."Pre-Stack Pallet Count")
+                {
+                    ApplicationArea = all;
+                }
+                field("Stacker Assigned"; Rec."Stacker Assigned")
+                {
+                    ApplicationArea = all;
+                }
+                field("Post-Stack Pallet Count"; Rec."Post-Stack Pallet Count")
+                {
+                    ApplicationArea = all;
+                }
+                field("Reviewed By"; Rec."Reviewed By")
+                {
+                    ApplicationArea = all;
+                }
             }
 
             group(Verification)
             {
-                field(Wrapper; Rec."Wrapper") { }
-                field(Verifier; Rec."Verifier") { }
-                field("Verifier Date"; Rec."Verifier Date") { }
+                field(Wrapper; Rec."Wrapper")
+                {
+                    ApplicationArea = all;
+                }
+                field(Verifier; Rec."Verifier")
+                {
+                    ApplicationArea = all;
+                }
+                field("Verifier Date"; Rec."Verifier Date")
+                {
+                    ApplicationArea = all;
+                }
             }
 
 
             part(PalletLines; "NDS Order Shipping Lines")
             {
                 SubPageLink = "Document No." = field("No.");
+                ApplicationArea = all;
             }
         }
     }
 
     actions
     {
-        area(Processing)
+        area(Reporting)
         {
             action(Print)
             {
-                Caption = 'Print Shipping Form';
+                Caption = 'Order Shipping Form';
 
                 trigger OnAction()
+                var
+                    ShippingHeader: Record "NDS Order Shipping Header";
                 begin
-                    // Report.RunModal(Report::"Shipping Form Report", true, true, Rec);
+                    ShippingHeader.Reset();
+                    ShippingHeader.SetRange("Source Document No.", Rec."Source Document No.");
+                    ShippingHeader.SetRange("No.", rec."No.");
+                    if ShippingHeader.FindFirst() then
+                        Report.RunModal(Report::"NDS Order Shipping Print", true, true, ShippingHeader);
                 end;
             }
         }

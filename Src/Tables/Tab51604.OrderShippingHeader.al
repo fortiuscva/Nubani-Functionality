@@ -5,7 +5,21 @@ table 51604 "NDS Order Shipping Header"
 
     fields
     {
-        field(1; "No."; Code[20]) { }
+        field(1; "No."; Code[20])
+        {
+            trigger OnValidate()
+            var
+                ShippingSetup: Record "NDS Shipping Setup";
+                NoSeries: Codeunit "No. Series";
+            begin
+                if "No." <> xRec."No." then begin
+                    ShippingSetup.Get();
+                    NoSeries.TestManual(ShippingSetup."Shipping Form Nos.");
+                    "No. Series" := '';
+                end;
+
+            end;
+        }
 
         field(2; "No. Series"; Code[20])
         {
@@ -14,11 +28,31 @@ table 51604 "NDS Order Shipping Header"
 
         field(10; "Source Document Type"; Enum "Shipping Source Document Type") { }
 
-        field(11; "Source Document No."; Code[20]) { }
+        field(11; "Source Document No."; Code[20])
+        {
+            TableRelation = "Sales Header"."No."
+        WHERE("Document Type" = CONST(Order));
+
+            trigger OnValidate()
+            var
+                SalesHeader: Record "Sales Header";
+            begin
+                if SalesHeader.Get(SalesHeader."Document Type"::Order, "Source Document No.") then begin
+                    "Customer Name" := SalesHeader."Sell-to Customer Name";
+                    "Salesperson" := SalesHeader."Salesperson Code";
+                    "Order Date" := SalesHeader."Order Date";
+                    "Shipping Method" := SalesHeader."Shipment Method Code";
+
+                end;
+            end;
+        }
 
         field(20; "Customer Name"; Text[100]) { }
 
-        field(21; Salesperson; Code[20]) { }
+        field(21; Salesperson; Code[20])
+        {
+            TableRelation = "Salesperson/Purchaser";
+        }
 
         field(22; "Order Date"; Date) { }
 
@@ -63,6 +97,8 @@ table 51604 "NDS Order Shipping Header"
     var
         ShippingSetup: Record "NDS Shipping Setup";
         NoSeries: Codeunit "No. Series";
+        SalesHeader: Record "Sales Header";
+        SalesOrderNo: Code[20];
     begin
         if "No." = '' then begin
 
@@ -74,6 +110,24 @@ table 51604 "NDS Order Shipping Header"
             "No." := NoSeries.GetNextNo(
                         ShippingSetup."Shipping Form Nos.",
                         WorkDate());
+
+            SalesOrderNo := Rec.GetFilter("Source Document No.");
+
+            if SalesOrderNo <> '' then begin
+                if SalesHeader.Get(SalesHeader."Document Type"::Order, SalesOrderNo) then
+                    Rec.Validate("Source Document No.", SalesHeader."No.");
+            end;
         end;
+    end;
+
+    trigger OnDelete()
+    var
+        ShippingLine: Record "NDS Order Shipping Line";
+    begin
+
+        ShippingLine.SetRange("Document No.", "No.");
+        if not ShippingLine.IsEmpty() then
+            ShippingLine.DeleteAll();
+
     end;
 }

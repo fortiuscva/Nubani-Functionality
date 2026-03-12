@@ -3,6 +3,8 @@ page 51604 "NDS Shipping Setup"
     PageType = Card;
     SourceTable = "NDS Shipping Setup";
     UsageCategory = Administration;
+    ApplicationArea = all;
+    Caption = 'Shipping Setup';
 
     layout
     {
@@ -14,4 +16,9 @@ page 51604 "NDS Shipping Setup"
             }
         }
     }
+
+    trigger OnOpenPage()
+    begin
+        Rec.GetRecordOnce();
+    end;
 }
