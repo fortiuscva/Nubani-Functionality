@@ -17,15 +17,15 @@ page 51605 "NDS Order Shipping Document"
 
                     trigger OnAssistEdit()
                     var
-                        ShippingSetup: Record "NDS Shipping Setup";
+                        SalesReceibalesSetup: Record "Sales & Receivables Setup";
                         NoSeries: Codeunit "No. Series";
                     begin
 
-                        ShippingSetup.Get();
-                        ShippingSetup.TestField("Shipping Form Nos.");
+                        SalesReceibalesSetup.Get();
+                        SalesReceibalesSetup.TestField("Shipping Form Nos.");
 
                         if NoSeries.LookupRelatedNoSeries(
-                            ShippingSetup."Shipping Form Nos.",
+                            SalesReceibalesSetup."Shipping Form Nos.",
                             Rec."No. Series",
                             Rec."No.") then begin
                             Rec.Validate("No.");
