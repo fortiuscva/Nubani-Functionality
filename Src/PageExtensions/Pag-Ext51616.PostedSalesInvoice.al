@@ -1,4 +1,4 @@
-pageextension 51616 "Posted Sales Invoice" extends "Posted Sales Invoice"
+pageextension 51616 "NDS Posted Sales Invoice" extends "Posted Sales Invoice"
 {
     layout
     {
@@ -13,6 +13,21 @@ pageextension 51616 "Posted Sales Invoice" extends "Posted Sales Invoice"
                 ApplicationArea = All;
                 Editable = false;
                 ToolTip = 'Specifies the value of the Driver Name field.', Comment = '%';
+            }
+        }
+    }
+    actions
+    {
+        addlast(Navigation)
+        {
+            action("NDS ShippingForms")
+            {
+                Caption = 'Shipping Forms';
+                Image = List;
+                ApplicationArea = All;
+
+                RunObject = page "NDS Order Shipping List";
+                RunPageLink = "Source Document No." = field("Order No.");
             }
         }
     }
