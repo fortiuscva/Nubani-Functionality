@@ -12,24 +12,14 @@ page 51605 "NDS Order Shipping Document"
         {
             group(General)
             {
+                Editable = false;
                 field("No."; Rec."No.")
                 {
 
                     trigger OnAssistEdit()
-                    var
-                        SalesReceibalesSetup: Record "Sales & Receivables Setup";
-                        NoSeries: Codeunit "No. Series";
                     begin
-
-                        SalesReceibalesSetup.Get();
-                        SalesReceibalesSetup.TestField("Shipping Form Nos.");
-
-                        if NoSeries.LookupRelatedNoSeries(
-                            SalesReceibalesSetup."Shipping Form Nos.",
-                            Rec."No. Series",
-                            Rec."No.") then begin
-                            Rec.Validate("No.");
-                        end;
+                        if Rec.AssistEdit(xRec) then
+                            CurrPage.Update();
                     end;
 
                 }
@@ -40,6 +30,10 @@ page 51605 "NDS Order Shipping Document"
                 field(Salesperson; Rec."Salesperson")
                 {
                     ApplicationArea = all;
+                }
+                field("Source Document No."; Rec."Source Document No.")
+                {
+                    ToolTip = 'Specifies the value of the Source Document No. field.', Comment = '%';
                 }
                 field("Order Date"; Rec."Order Date")
                 {
@@ -76,6 +70,24 @@ page 51605 "NDS Order Shipping Document"
                 field(Other; Rec."Other")
                 {
                     ApplicationArea = all;
+                }
+                group(NDSNotes)
+                {
+                    Caption = 'Notes';
+                    field(Notes; NotesTxt)
+                    {
+                        ApplicationArea = all;
+                        Caption = 'Notes';
+                        Importance = Additional;
+                        MultiLine = true;
+                        ShowCaption = false;
+                        ToolTip = 'Specifies the products or service being offered.';
+
+                        trigger OnValidate()
+                        begin
+                            Rec.SetNotes(NotesTxt);
+                        end;
+                    }
                 }
             }
 
@@ -131,13 +143,13 @@ page 51605 "NDS Order Shipping Document"
             action(Print)
             {
                 Caption = 'Order Shipping Form';
-
+                ApplicationArea = all;
+                Image = Print;
                 trigger OnAction()
                 var
                     ShippingHeader: Record "NDS Order Shipping Header";
                 begin
                     ShippingHeader.Reset();
-                    ShippingHeader.SetRange("Source Document No.", Rec."Source Document No.");
                     ShippingHeader.SetRange("No.", rec."No.");
                     if ShippingHeader.FindFirst() then
                         Report.RunModal(Report::"NDS Order Shipping Print", true, true, ShippingHeader);
@@ -145,4 +157,11 @@ page 51605 "NDS Order Shipping Document"
             }
         }
     }
+    trigger OnAfterGetRecord()
+    begin
+        NotesTxt := Rec.GetNotes();
+    end;
+
+    var
+        NotesTxt: Text;
 }

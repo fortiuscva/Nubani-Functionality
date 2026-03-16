@@ -40,4 +40,25 @@ page 51607 "NDS Order Shipping List"
             }
         }
     }
+    actions
+    {
+        area(Reporting)
+        {
+            action(Print)
+            {
+                Caption = 'Order Shipping Form';
+                ApplicationArea = all;
+                Image = Print;
+                trigger OnAction()
+                var
+                    ShippingHeader: Record "NDS Order Shipping Header";
+                begin
+                    ShippingHeader.Reset();
+                    ShippingHeader.SetRange("No.", rec."No.");
+                    if ShippingHeader.FindFirst() then
+                        Report.RunModal(Report::"NDS Order Shipping Print", true, true, ShippingHeader);
+                end;
+            }
+        }
+    }
 }
