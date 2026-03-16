@@ -4,4 +4,6 @@ enum 51601 "NDS Temp Control Option"
     value(0; No) { Caption = 'No'; }
     value(1; Yes) { Caption = 'Yes'; }
 
+    value(2; TBD) { Caption = 'TBD'; }
+
 }

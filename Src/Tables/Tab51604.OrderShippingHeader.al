@@ -153,7 +153,7 @@ table 51604 "NDS Order Shipping Header"
             DataClassification = ToBeClassified;
         }
 
-        field(70; Notes; Text[250])
+        field(70; Notes; BLOB)
         {
             Caption = 'Notes';
             DataClassification = ToBeClassified;
@@ -170,13 +170,69 @@ table 51604 "NDS Order Shipping Header"
 
     trigger OnInsert()
     var
-        SalesReceibalesSetup: Record "Sales & Receivables Setup";
+        SalesReceivablesSetup: Record "Sales & Receivables Setup";
         NoSeries: Codeunit "No. Series";
+        SalesOrderNo: Code[20];
+        SalesHeader: Record "Sales Header";
     begin
-        if "No." <> xRec."No." then begin
-            SalesReceibalesSetup.Get();
-            NoSeries.TestManual(SalesReceibalesSetup."Shipping Form Nos.");
-            "No. Series" := '';
+        SalesReceivablesSetup.Get();
+        if "No." = '' then begin
+            SalesReceivablesSetup.TestField("Shipping Form Nos.");      //To Test No. Series
+            "No. Series" := SalesReceivablesSetup."Shipping Form Nos.";
+            if NoSeries.AreRelated("No. Series", xRec."No. Series") then
+                "No. Series" := xRec."No. Series";
+            "No." := NoSeries.GetNextNo("No. Series");
+        end;
+
+        SalesOrderNo := Rec.GetFilter("Source Document No.");
+
+        if SalesOrderNo <> '' then begin
+            if SalesHeader.Get(SalesHeader."Document Type"::Order, SalesOrderNo) then
+                Rec.Validate("Source Document No.", SalesHeader."No.");
         end;
     end;
+
+    trigger OnDelete()
+    var
+        ShippingLine: Record "NDS Order Shipping Line";
+    begin
+
+        ShippingLine.SetRange("Document No.", "No.");
+        if not ShippingLine.IsEmpty() then
+            ShippingLine.DeleteAll();
+    end;
+
+
+    procedure AssistEdit(OldOrderShippingHeader: Record "NDS Order Shipping Header"): Boolean
+    var
+        SalesReceivablesSetup: Record "Sales & Receivables Setup";
+        NoSeries: Codeunit "No. Series";
+    begin
+        SalesReceivablesSetup.get;
+        if NoSeries.LookupRelatedNoSeries(SalesReceivablesSetup."Shipping Form Nos.", OldOrderShippingHeader."No. Series", "No. Series") then begin
+            "No." := NoSeries.GetNextNo("No. Series");
+            exit(true);
+        end;
+    end;
+
+    procedure SetNotes(NewNotes: Text)
+    var
+        OutStream: OutStream;
+    begin
+        Clear(Notes);
+        Notes.CreateOutStream(OutStream, TEXTENCODING::UTF8);
+        OutStream.WriteText(NewNotes);
+        Modify();
+    end;
+
+    procedure GetNotes() NotesText: Text
+    var
+        TypeHelper: Codeunit "Type Helper";
+        InStream: InStream;
+    begin
+        CalcFields(Notes);
+        Notes.CreateInStream(InStream, TEXTENCODING::UTF8);
+        exit(TypeHelper.TryReadAsTextWithSepAndFieldErrMsg(InStream, TypeHelper.LFSeparator(), FieldName(Notes)));
+    end;
+
 }

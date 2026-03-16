@@ -23,7 +23,7 @@ pageextension 51618 "NDS Sales Order List" extends "Sales Order List"
         "Source Document No." = field("No.");
             }
         }
-        addlast(Promoted)
+        addlast(Category_Process)
         {
             actionref(OrderShipping; "NDS Order Shipping")
             {

@@ -30,7 +30,7 @@ report 51601 "NDS Order Shipping Print"
             column(ShippingMethod; "Shipping Method") { }
             column(ShippingMethod_Caption; FieldCaption("Shipping Method")) { }
 
-            column(TempControl; "Temp Control") { }
+            column(TempControl; TempControlVar) { }
             column(TempControl_Caption; FieldCaption("Temp Control")) { }
 
             column(PreStack; "Pre-Stack Pallet Count") { }
@@ -51,7 +51,7 @@ report 51601 "NDS Order Shipping Print"
             column(Verifier; "Verifier") { }
             column(Verifier_Caption; FieldCaption("Verifier")) { }
 
-            column(Notes; "Notes") { }
+            column(Notes; NotesTxt) { }
             column(Lift_Gate; BoolToYN("Lift Gate")) { }
             column(Notify_Appointment; BoolToYN("Notify Appointment")) { }
             column(Other; BoolToYN(Other)) { }
@@ -81,6 +81,20 @@ report 51601 "NDS Order Shipping Print"
                 column(Weight; Weight) { }
                 column(Weight_Caption; FieldCaption(Weight)) { }
             }
+            trigger OnAfterGetRecord()
+            begin
+                NotesTxt := Header.GetNotes();
+
+                case
+                    Header."Temp Control" of
+                    "NDS Temp Control Option"::No:
+                        TempControlVar := 0;
+                    "NDS Temp Control Option"::YEs:
+                        TempControlVar := 1;
+                    "NDS Temp Control Option"::TBD:
+                        TempControlVar := 2;
+                end;
+            end;
         }
     }
 
@@ -100,4 +114,8 @@ report 51601 "NDS Order Shipping Print"
         else
             exit('N');
     end;
+
+    var
+        NotesTxt: Text;
+        TempControlVar: Integer;
 }

@@ -27,4 +27,25 @@ pageextension 51613 "NDS Sales Order" extends "Sales Order"
 
         }
     }
+    actions
+    {
+        addafter("Archive Document")
+        {
+            action("NDS Order Shipping")
+            {
+                ApplicationArea = All;
+                Caption = 'Order Shipping';
+                RunObject = Page "NDS Order Shipping List";
+                RunPageLink =
+        "Source Document No." = field("No.");
+            }
+        }
+        addlast(Category_Process)
+        {
+            actionref(OrderShipping; "NDS Order Shipping")
+            {
+            }
+        }
+    }
 }
+
