@@ -9,7 +9,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.0.20283.0</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-03-16T18:57:55.7728718Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-03-16T20:17:18.1467445Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -48,7 +48,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Fields!CustomerName_Caption.Value</Value>
+                                      <Value EvaluationMode="Constant">CUSTOMER NAME:</Value>
                                       <Style>
                                         <FontSize>12pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
@@ -63,11 +63,12 @@
                               <Top>1.69035in</Top>
                               <Left>0.01767in</Left>
                               <Height>0.25in</Height>
-                              <Width>1.93542in</Width>
+                              <Width>1.8465in</Width>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
                                 </Border>
+                                <VerticalAlign>Bottom</VerticalAlign>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -94,9 +95,9 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
                               <Top>1.69035in</Top>
-                              <Left>2.02253in</Left>
+                              <Left>1.87253in</Left>
                               <Height>0.25in</Height>
-                              <Width>1.93542in</Width>
+                              <Width>2.34889in</Width>
                               <ZIndex>1</ZIndex>
                               <Style>
                                 <Border>
@@ -120,7 +121,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Fields!Salesperson_Caption.Value</Value>
+                                      <Value EvaluationMode="Constant">SALESPERSON:</Value>
                                       <Style>
                                         <FontSize>12pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
@@ -128,19 +129,22 @@
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
-                                  <Style />
+                                  <Style>
+                                    <TextAlign>Left</TextAlign>
+                                  </Style>
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
                               <Top>1.69035in</Top>
-                              <Left>4.11586in</Left>
+                              <Left>4.29086in</Left>
                               <Height>0.25in</Height>
-                              <Width>1.93542in</Width>
+                              <Width>1.4286in</Width>
                               <ZIndex>2</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
                                 </Border>
+                                <VerticalAlign>Bottom</VerticalAlign>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -167,9 +171,9 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
                               <Top>1.69035in</Top>
-                              <Left>6.12072in</Left>
+                              <Left>5.74572in</Left>
                               <Height>0.25in</Height>
-                              <Width>1.93542in</Width>
+                              <Width>1.88542in</Width>
                               <ZIndex>3</ZIndex>
                               <Style>
                                 <Border>
@@ -193,7 +197,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value EvaluationMode="Constant">Order</Value>
+                                      <Value EvaluationMode="Constant">ORDER -</Value>
                                       <Style>
                                         <FontSize>12pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
@@ -201,19 +205,22 @@
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
-                                  <Style />
+                                  <Style>
+                                    <TextAlign>Left</TextAlign>
+                                  </Style>
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>2.00979in</Top>
-                              <Left>0.01683in</Left>
+                              <Top>1.99729in</Top>
+                              <Left>0.03211in</Left>
                               <Height>0.25in</Height>
-                              <Width>1.3625in</Width>
+                              <Width>0.80625in</Width>
                               <ZIndex>4</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
                                 </Border>
+                                <VerticalAlign>Bottom</VerticalAlign>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -240,7 +247,7 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
                               <Top>1.99591in</Top>
-                              <Left>1.45225in</Left>
+                              <Left>0.85225in</Left>
                               <Height>0.25in</Height>
                               <Width>1.49792in</Width>
                               <ZIndex>5</ZIndex>
@@ -266,7 +273,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value EvaluationMode="Constant">Date</Value>
+                                      <Value EvaluationMode="Constant">DATE:</Value>
                                       <Style>
                                         <FontSize>12pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
@@ -278,15 +285,16 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>2.00979in</Top>
-                              <Left>3.01961in</Left>
+                              <Top>1.99729in</Top>
+                              <Left>2.36961in</Left>
                               <Height>0.25in</Height>
-                              <Width>0.8in</Width>
+                              <Width>0.64306in</Width>
                               <ZIndex>6</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
                                 </Border>
+                                <VerticalAlign>Bottom</VerticalAlign>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -312,8 +320,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>2.00979in</Top>
-                              <Left>3.88906in</Left>
+                              <Top>1.99729in</Top>
+                              <Left>3.02656in</Left>
                               <Height>0.25in</Height>
                               <Width>1.16459in</Width>
                               <ZIndex>7</ZIndex>
@@ -339,7 +347,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Fields!ShippingMethod_Caption.Value</Value>
+                                      <Value EvaluationMode="Constant">SHIPPING METHOD -</Value>
                                       <Style>
                                         <FontSize>12pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
@@ -351,8 +359,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>2.00979in</Top>
-                              <Left>5.23648in</Left>
+                              <Top>1.99729in</Top>
+                              <Left>4.29898in</Left>
                               <Height>0.25in</Height>
                               <Width>1.72014in</Width>
                               <ZIndex>8</ZIndex>
@@ -360,6 +368,7 @@
                                 <Border>
                                   <Style>None</Style>
                                 </Border>
+                                <VerticalAlign>Bottom</VerticalAlign>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -385,10 +394,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>2.00979in</Top>
-                              <Left>7.02607in</Left>
+                              <Top>1.99729in</Top>
+                              <Left>6.06357in</Left>
                               <Height>0.25in</Height>
-                              <Width>1.03007in</Width>
+                              <Width>1.56757in</Width>
                               <ZIndex>9</ZIndex>
                               <Style>
                                 <Border>
@@ -412,7 +421,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Fields!TempControl_Caption.Value</Value>
+                                      <Value EvaluationMode="Constant">TEMP CONTROL</Value>
                                       <Style>
                                         <FontSize>12pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
@@ -427,7 +436,7 @@
                               <Top>2.32924in</Top>
                               <Left>0.016in</Left>
                               <Height>0.25in</Height>
-                              <Width>1.31042in</Width>
+                              <Width>1.39792in</Width>
                               <ZIndex>10</ZIndex>
                               <Style>
                                 <Border>
@@ -447,9 +456,7 @@
                                   <TextRuns>
                                     <TextRun>
                                       <Value>=IIf(Fields!TempControl.Value =1, "X","")</Value>
-                                      <Style>
-                                        <FontSize>12pt</FontSize>
-                                      </Style>
+                                      <Style />
                                     </TextRun>
                                   </TextRuns>
                                   <Style>
@@ -458,10 +465,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>2.32924in</Top>
-                              <Left>1.32642in</Left>
+                              <Top>2.32647in</Top>
+                              <Left>1.44169in</Left>
                               <Height>0.25in</Height>
-                              <Width>0.62667in</Width>
+                              <Width>0.50167in</Width>
                               <ZIndex>11</ZIndex>
                               <Style>
                                 <Border>
@@ -688,7 +695,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Fields!PreStack_Caption.Value</Value>
+                                      <Value EvaluationMode="Constant">PRE-STACK PALLET COUNT -</Value>
                                       <Style>
                                         <FontSize>12pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
@@ -696,19 +703,22 @@
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
-                                  <Style />
+                                  <Style>
+                                    <TextAlign>Left</TextAlign>
+                                  </Style>
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
                               <Top>3.49306in</Top>
-                              <Left>0.02529in</Left>
+                              <Left>0.05152in</Left>
                               <Height>0.25in</Height>
-                              <Width>2.40946in</Width>
+                              <Width>2.61711in</Width>
                               <ZIndex>18</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
                                 </Border>
+                                <VerticalAlign>Bottom</VerticalAlign>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -735,7 +745,7 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
                               <Top>3.49306in</Top>
-                              <Left>2.46253in</Left>
+                              <Left>2.71253in</Left>
                               <Height>0.25in</Height>
                               <Width>1.49792in</Width>
                               <ZIndex>19</ZIndex>
@@ -761,7 +771,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Fields!Stacker_Caption.Value</Value>
+                                      <Value>STACKER ASSIGNED:</Value>
                                       <Style>
                                         <FontSize>12pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
@@ -769,19 +779,22 @@
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
-                                  <Style />
+                                  <Style>
+                                    <TextAlign>Left</TextAlign>
+                                  </Style>
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
                               <Top>3.8125in</Top>
-                              <Left>0.02445in</Left>
+                              <Left>0.04945in</Left>
                               <Height>0.25in</Height>
-                              <Width>2.40946in</Width>
+                              <Width>2.61918in</Width>
                               <ZIndex>20</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
                                 </Border>
+                                <VerticalAlign>Bottom</VerticalAlign>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -808,7 +821,7 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
                               <Top>3.8125in</Top>
-                              <Left>2.46169in</Left>
+                              <Left>2.71253in</Left>
                               <Height>0.25in</Height>
                               <Width>1.49792in</Width>
                               <ZIndex>21</ZIndex>
@@ -834,7 +847,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Fields!PostStack_Caption.Value</Value>
+                                      <Value EvaluationMode="Constant">POST-STACK PALLET COUNT -</Value>
                                       <Style>
                                         <FontSize>12pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
@@ -842,19 +855,22 @@
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
-                                  <Style />
+                                  <Style>
+                                    <TextAlign>Left</TextAlign>
+                                  </Style>
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
                               <Top>4.13194in</Top>
                               <Left>0.02362in</Left>
                               <Height>0.25in</Height>
-                              <Width>2.40946in</Width>
+                              <Width>2.65946in</Width>
                               <ZIndex>22</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
                                 </Border>
+                                <VerticalAlign>Bottom</VerticalAlign>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -881,7 +897,7 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
                               <Top>4.13194in</Top>
-                              <Left>2.46086in</Left>
+                              <Left>2.71253in</Left>
                               <Height>0.25in</Height>
                               <Width>1.49792in</Width>
                               <ZIndex>23</ZIndex>
@@ -907,7 +923,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Fields!ReviewedBy_Caption.Value</Value>
+                                      <Value EvaluationMode="Constant">REVIEWED BY:</Value>
                                       <Style>
                                         <FontSize>12pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
@@ -920,9 +936,9 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
                               <Top>4.45139in</Top>
-                              <Left>0.02279in</Left>
+                              <Left>0.04779in</Left>
                               <Height>0.25in</Height>
-                              <Width>2.40946in</Width>
+                              <Width>2.6214in</Width>
                               <ZIndex>24</ZIndex>
                               <Style>
                                 <Border>
@@ -954,7 +970,7 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
                               <Top>4.45139in</Top>
-                              <Left>2.46003in</Left>
+                              <Left>2.71253in</Left>
                               <Height>0.25in</Height>
                               <Width>1.49792in</Width>
                               <ZIndex>25</ZIndex>
@@ -1682,7 +1698,9 @@
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
-                                  <Style />
+                                  <Style>
+                                    <TextAlign>Left</TextAlign>
+                                  </Style>
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox49</rd:DefaultName>
@@ -1695,36 +1713,7 @@
                                 <Border>
                                   <Style>None</Style>
                                 </Border>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                            <Textbox Name="Textbox50">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value />
-                                      <Style />
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style />
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>Textbox49</rd:DefaultName>
-                              <Top>7.27304cm</Top>
-                              <Left>9.01446cm</Left>
-                              <Height>0.6cm</Height>
-                              <Width>2.5cm</Width>
-                              <ZIndex>38</ZIndex>
-                              <Style>
-                                <Border>
-                                  <Style>None</Style>
-                                </Border>
+                                <VerticalAlign>Bottom</VerticalAlign>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -1749,10 +1738,10 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox49</rd:DefaultName>
                               <Top>5.91627cm</Top>
-                              <Left>6.39434cm</Left>
-                              <Height>0.60325cm</Height>
+                              <Left>6.38181cm</Left>
+                              <Height>0.635cm</Height>
                               <Width>1.11758cm</Width>
-                              <ZIndex>39</ZIndex>
+                              <ZIndex>38</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1785,14 +1774,15 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox49</rd:DefaultName>
                               <Top>5.91627cm</Top>
-                              <Left>7.43431cm</Left>
+                              <Left>7.56131cm</Left>
                               <Height>0.60325cm</Height>
-                              <Width>1.11758cm</Width>
-                              <ZIndex>40</ZIndex>
+                              <Width>1.05408cm</Width>
+                              <ZIndex>39</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
                                 </Border>
+                                <VerticalAlign>Bottom</VerticalAlign>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -1817,10 +1807,10 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox49</rd:DefaultName>
                               <Top>5.91627cm</Top>
-                              <Left>8.63114cm</Left>
+                              <Left>8.69464cm</Left>
                               <Height>0.635cm</Height>
                               <Width>1.11758cm</Width>
-                              <ZIndex>41</ZIndex>
+                              <ZIndex>40</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1867,11 +1857,12 @@
                               <Left>9.79105cm</Left>
                               <Height>0.635cm</Height>
                               <Width>1.11758cm</Width>
-                              <ZIndex>42</ZIndex>
+                              <ZIndex>41</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
                                 </Border>
+                                <VerticalAlign>Bottom</VerticalAlign>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -1940,7 +1931,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Fields!Wrapper_Caption.Value</Value>
+                      <Value EvaluationMode="Constant">WRAPPER:</Value>
                       <Style>
                         <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -1953,11 +1944,12 @@
               <rd:DefaultName>Textbox2</rd:DefaultName>
               <Left>0.06055in</Left>
               <Height>0.25in</Height>
-              <Width>1.3625in</Width>
+              <Width>0.975in</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
                 </Border>
+                <BackgroundColor>Yellow</BackgroundColor>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
                 <PaddingTop>2pt</PaddingTop>
@@ -1983,9 +1975,9 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Left>1.49597in</Left>
+              <Left>1.03347in</Left>
               <Height>0.25in</Height>
-              <Width>3.868in</Width>
+              <Width>3.893in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -2008,7 +2000,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Fields!Verifier_Caption.Value</Value>
+                      <Value EvaluationMode="Constant">VERIFIER -</Value>
                       <Style>
                         <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -2020,10 +2012,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>0.44792in</Top>
+              <Top>0.34792in</Top>
               <Left>0.05971in</Left>
               <Height>0.25in</Height>
-              <Width>1.3625in</Width>
+              <Width>0.97584in</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -2054,8 +2046,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>0.44792in</Top>
-              <Left>1.49513in</Left>
+              <Top>0.34792in</Top>
+              <Left>1.05763in</Left>
               <Height>0.25in</Height>
               <Width>1.49792in</Width>
               <ZIndex>3</ZIndex>
@@ -2080,7 +2072,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Date</Value>
+                      <Value>DATE -</Value>
                       <Style>
                         <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -2092,10 +2084,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>0.44792in</Top>
+              <Top>0.36042in</Top>
               <Left>3.25971in</Left>
               <Height>0.25in</Height>
-              <Width>1.3625in</Width>
+              <Width>0.6125in</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
@@ -2126,8 +2118,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>0.44792in</Top>
-              <Left>4.69513in</Left>
+              <Top>0.36042in</Top>
+              <Left>3.89513in</Left>
               <Height>0.25in</Height>
               <Width>1.49792in</Width>
               <ZIndex>5</ZIndex>
@@ -2152,7 +2144,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Fields!Notes_Caption.Value</Value>
+                      <Value EvaluationMode="Constant">NOTES:</Value>
                       <Style>
                         <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -2163,10 +2155,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>0.83333in</Top>
+              <Top>0.68333in</Top>
               <Left>0.05888in</Left>
               <Height>0.25in</Height>
-              <Width>1.3625in</Width>
+              <Width>0.78031in</Width>
               <ZIndex>6</ZIndex>
               <Style>
                 <Border>
@@ -2197,10 +2189,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>0.83333in</Top>
-              <Left>1.4943in</Left>
+              <Top>0.68333in</Top>
+              <Left>0.87095in</Left>
               <Height>0.25in</Height>
-              <Width>6.49792in</Width>
+              <Width>7.12127in</Width>
               <ZIndex>7</ZIndex>
               <Style>
                 <Border>

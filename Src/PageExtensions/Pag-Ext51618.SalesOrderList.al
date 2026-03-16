@@ -17,10 +17,10 @@ pageextension 51618 "NDS Sales Order List" extends "Sales Order List"
             action("NDS Order Shipping")
             {
                 ApplicationArea = All;
+                Image = OrderTracking;
                 Caption = 'Order Shipping';
                 RunObject = Page "NDS Order Shipping List";
-                RunPageLink =
-        "Source Document No." = field("No.");
+                RunPageLink = "Source Document No." = field("No.");
             }
         }
         addlast(Category_Process)

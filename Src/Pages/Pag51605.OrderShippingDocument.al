@@ -143,7 +143,8 @@ page 51605 "NDS Order Shipping Document"
             action(Print)
             {
                 Caption = 'Order Shipping Form';
-
+                ApplicationArea = all;
+                Image = Print;
                 trigger OnAction()
                 var
                     ShippingHeader: Record "NDS Order Shipping Header";
