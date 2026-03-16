@@ -12,6 +12,7 @@ page 51605 "NDS Order Shipping Document"
         {
             group(General)
             {
+                Editable = false;
                 field("No."; Rec."No.")
                 {
 
@@ -137,7 +138,6 @@ page 51605 "NDS Order Shipping Document"
                     ShippingHeader: Record "NDS Order Shipping Header";
                 begin
                     ShippingHeader.Reset();
-                    ShippingHeader.SetRange("Source Document No.", Rec."Source Document No.");
                     ShippingHeader.SetRange("No.", rec."No.");
                     if ShippingHeader.FindFirst() then
                         Report.RunModal(Report::"NDS Order Shipping Print", true, true, ShippingHeader);
