@@ -9,7 +9,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.0.20283.0</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-03-17T12:33:00.2945437Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-03-17T17:09:51.3547711Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -35,7 +35,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>5.96302in</Height>
+                  <Height>5.01996in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -48,7 +48,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value EvaluationMode="Constant">CUSTOMER NAME:</Value>
+                                      <Value>=Fields!CustomerName_Caption.Value</Value>
                                       <Style>
                                         <FontSize>12pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
@@ -60,7 +60,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.69035in</Top>
+                              <Top>1.49452in</Top>
                               <Left>0.01767in</Left>
                               <Height>0.25in</Height>
                               <Width>1.8465in</Width>
@@ -94,7 +94,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.69035in</Top>
+                              <Top>1.49452in</Top>
                               <Left>1.87253in</Left>
                               <Height>0.25in</Height>
                               <Width>2.34889in</Width>
@@ -121,7 +121,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value EvaluationMode="Constant">SALESPERSON:</Value>
+                                      <Value>=Fields!Salesperson_Caption.Value</Value>
                                       <Style>
                                         <FontSize>12pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
@@ -135,7 +135,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.69035in</Top>
+                              <Top>1.49452in</Top>
                               <Left>4.29086in</Left>
                               <Height>0.25in</Height>
                               <Width>1.4286in</Width>
@@ -170,7 +170,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.69035in</Top>
+                              <Top>1.49452in</Top>
                               <Left>5.74572in</Left>
                               <Height>0.25in</Height>
                               <Width>1.88542in</Width>
@@ -197,7 +197,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value EvaluationMode="Constant">ORDER -</Value>
+                                      <Value>=Fields!SourceDocNo_Caption.Value</Value>
                                       <Style>
                                         <FontSize>12pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
@@ -211,7 +211,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.99729in</Top>
+                              <Top>1.79312in</Top>
                               <Left>0.03211in</Left>
                               <Height>0.25in</Height>
                               <Width>0.80625in</Width>
@@ -246,7 +246,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.99591in</Top>
+                              <Top>1.79174in</Top>
                               <Left>0.85225in</Left>
                               <Height>0.25in</Height>
                               <Width>1.49792in</Width>
@@ -273,7 +273,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value EvaluationMode="Constant">DATE:</Value>
+                                      <Value>=Fields!OrderDate_Caption.Value</Value>
                                       <Style>
                                         <FontSize>12pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
@@ -285,7 +285,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.99729in</Top>
+                              <Top>1.79312in</Top>
                               <Left>2.36961in</Left>
                               <Height>0.25in</Height>
                               <Width>0.64306in</Width>
@@ -320,7 +320,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.99729in</Top>
+                              <Top>1.79312in</Top>
                               <Left>3.02656in</Left>
                               <Height>0.25in</Height>
                               <Width>1.16459in</Width>
@@ -347,7 +347,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value EvaluationMode="Constant">SHIPPING METHOD -</Value>
+                                      <Value>=Fields!ShippingMethod_Caption.Value</Value>
                                       <Style>
                                         <FontSize>12pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
@@ -359,7 +359,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.99729in</Top>
+                              <Top>1.80146in</Top>
                               <Left>4.29898in</Left>
                               <Height>0.25in</Height>
                               <Width>1.72014in</Width>
@@ -394,7 +394,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.99729in</Top>
+                              <Top>1.80146in</Top>
                               <Left>6.06357in</Left>
                               <Height>0.25in</Height>
                               <Width>1.56757in</Width>
@@ -421,7 +421,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value EvaluationMode="Constant">TEMP CONTROL</Value>
+                                      <Value>=Fields!TempControl_Caption.Value</Value>
                                       <Style>
                                         <FontSize>12pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
@@ -433,7 +433,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>2.32924in</Top>
+                              <Top>2.10424in</Top>
                               <Left>0.016in</Left>
                               <Height>0.25in</Height>
                               <Width>1.39792in</Width>
@@ -465,7 +465,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>2.32647in</Top>
+                              <Top>2.10147in</Top>
                               <Left>1.44169in</Left>
                               <Height>0.25in</Height>
                               <Width>0.50167in</Width>
@@ -502,8 +502,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>2.96181in</Top>
-                              <Left>0.02779in</Left>
+                              <Top>2.73264in</Top>
+                              <Left>0.03612in</Left>
                               <Height>0.25in</Height>
                               <Width>0.95692in</Width>
                               <ZIndex>12</ZIndex>
@@ -537,8 +537,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>2.96181in</Top>
-                              <Left>1.05415in</Left>
+                              <Top>2.73264in</Top>
+                              <Left>1.06248in</Left>
                               <Height>0.25in</Height>
                               <Width>0.89894in</Width>
                               <ZIndex>13</ZIndex>
@@ -570,8 +570,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>2.96181in</Top>
-                              <Left>2.53443in</Left>
+                              <Top>2.73264in</Top>
+                              <Left>2.54276in</Left>
                               <Height>0.25in</Height>
                               <Width>1.92559in</Width>
                               <ZIndex>14</ZIndex>
@@ -605,8 +605,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>2.96181in</Top>
-                              <Left>4.52946in</Left>
+                              <Top>2.73264in</Top>
+                              <Left>4.53779in</Left>
                               <Height>0.25in</Height>
                               <Width>0.72991in</Width>
                               <ZIndex>15</ZIndex>
@@ -638,8 +638,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>2.96181in</Top>
-                              <Left>5.42427in</Left>
+                              <Top>2.73264in</Top>
+                              <Left>5.4326in</Left>
                               <Height>0.25in</Height>
                               <Width>0.69762in</Width>
                               <ZIndex>16</ZIndex>
@@ -673,7 +673,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>2.96181in</Top>
+                              <Top>2.72431in</Top>
                               <Left>6.19133in</Left>
                               <Height>0.25in</Height>
                               <Width>0.40765in</Width>
@@ -695,7 +695,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value EvaluationMode="Constant">PRE-STACK PALLET COUNT -</Value>
+                                      <Value>=Fields!PreStack_Caption.Value</Value>
                                       <Style>
                                         <FontSize>12pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
@@ -709,8 +709,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>3.49306in</Top>
-                              <Left>0.05152in</Left>
+                              <Top>3.01389in</Top>
+                              <Left>0.08485in</Left>
                               <Height>0.25in</Height>
                               <Width>2.61711in</Width>
                               <ZIndex>18</ZIndex>
@@ -744,8 +744,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>3.49306in</Top>
-                              <Left>2.71253in</Left>
+                              <Top>3.02639in</Top>
+                              <Left>2.73753in</Left>
                               <Height>0.25in</Height>
                               <Width>1.49792in</Width>
                               <ZIndex>19</ZIndex>
@@ -771,7 +771,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>STACKER ASSIGNED:</Value>
+                                      <Value>=Fields!Stacker_Caption.Value</Value>
                                       <Style>
                                         <FontSize>12pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
@@ -785,8 +785,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>3.8125in</Top>
-                              <Left>0.04945in</Left>
+                              <Top>3.30833in</Top>
+                              <Left>0.08485in</Left>
                               <Height>0.25in</Height>
                               <Width>2.61918in</Width>
                               <ZIndex>20</ZIndex>
@@ -820,8 +820,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>3.8125in</Top>
-                              <Left>2.71253in</Left>
+                              <Top>3.30833in</Top>
+                              <Left>2.73753in</Left>
                               <Height>0.25in</Height>
                               <Width>1.49792in</Width>
                               <ZIndex>21</ZIndex>
@@ -847,7 +847,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value EvaluationMode="Constant">POST-STACK PALLET COUNT -</Value>
+                                      <Value>=Fields!PostStack_Caption.Value</Value>
                                       <Style>
                                         <FontSize>12pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
@@ -861,8 +861,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>4.13194in</Top>
-                              <Left>0.02362in</Left>
+                              <Top>3.58611in</Top>
+                              <Left>0.08485in</Left>
                               <Height>0.25in</Height>
                               <Width>2.65946in</Width>
                               <ZIndex>22</ZIndex>
@@ -896,8 +896,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>4.13194in</Top>
-                              <Left>2.71253in</Left>
+                              <Top>3.58611in</Top>
+                              <Left>2.73753in</Left>
                               <Height>0.25in</Height>
                               <Width>1.49792in</Width>
                               <ZIndex>23</ZIndex>
@@ -923,7 +923,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value EvaluationMode="Constant">REVIEWED BY:</Value>
+                                      <Value>=Fields!ReviewedBy_Caption.Value</Value>
                                       <Style>
                                         <FontSize>12pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
@@ -935,8 +935,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>4.45139in</Top>
-                              <Left>0.04779in</Left>
+                              <Top>3.87639in</Top>
+                              <Left>0.08485in</Left>
                               <Height>0.25in</Height>
                               <Width>2.6214in</Width>
                               <ZIndex>24</ZIndex>
@@ -969,8 +969,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>4.45139in</Top>
-                              <Left>2.71253in</Left>
+                              <Top>3.87639in</Top>
+                              <Left>2.72503in</Left>
                               <Height>0.25in</Height>
                               <Width>1.49792in</Width>
                               <ZIndex>25</ZIndex>
@@ -1365,7 +1365,7 @@
                                   </TablixMember>
                                 </TablixMembers>
                               </TablixRowHierarchy>
-                              <Top>14.05659cm</Top>
+                              <Top>11.89759cm</Top>
                               <Left>0.02188cm</Left>
                               <Height>0.56885cm</Height>
                               <Width>18.01857cm</Width>
@@ -1395,7 +1395,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>2.6348in</Top>
+                              <Top>2.40563in</Top>
+                              <Left>0.00833in</Left>
                               <Height>0.25in</Height>
                               <Width>2.26613in</Width>
                               <ZIndex>27</ZIndex>
@@ -1431,8 +1432,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>2.64236in</Top>
-                              <Left>2.32169in</Left>
+                              <Top>2.41319in</Top>
+                              <Left>2.33002in</Left>
                               <Height>0.25in</Height>
                               <Width>2.83826in</Width>
                               <ZIndex>28</ZIndex>
@@ -1518,8 +1519,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>2.64514in</Top>
-                              <Left>5.21551in</Left>
+                              <Top>2.41597in</Top>
+                              <Left>5.22384in</Left>
                               <Height>0.25in</Height>
                               <Width>0.40765in</Width>
                               <ZIndex>31</ZIndex>
@@ -1552,7 +1553,7 @@ SHIPMENT --- LTL is 1 to 6 pallets /// PARTIAL TRUCKLOAD is 7 to 12 pallets</Val
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>4.82083in</Top>
+                              <Top>4.17083in</Top>
                               <Left>0.02779in</Left>
                               <Height>0.47917in</Height>
                               <Width>7.07475in</Width>
@@ -1584,8 +1585,8 @@ SHIPMENT --- LTL is 1 to 6 pallets /// PARTIAL TRUCKLOAD is 7 to 12 pallets</Val
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>5.82749in</Top>
-                              <Left>2.64241in</Left>
+                              <Top>4.93999in</Top>
+                              <Left>2.65074in</Left>
                               <Height>0.20312cm</Height>
                               <Width>2.47518cm</Width>
                               <ZIndex>33</ZIndex>
@@ -1620,8 +1621,8 @@ SHIPMENT --- LTL is 1 to 6 pallets /// PARTIAL TRUCKLOAD is 7 to 12 pallets</Val
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>5.81361in</Top>
-                              <Left>3.603in</Left>
+                              <Top>4.91778in</Top>
+                              <Left>3.61133in</Left>
                               <Height>0.20312cm</Height>
                               <Width>2.14823cm</Width>
                               <ZIndex>34</ZIndex>
@@ -1656,8 +1657,8 @@ SHIPMENT --- LTL is 1 to 6 pallets /// PARTIAL TRUCKLOAD is 7 to 12 pallets</Val
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>5.82749in</Top>
-                              <Left>4.46265in</Left>
+                              <Top>4.93999in</Top>
+                              <Left>4.47098in</Left>
                               <Height>0.20312cm</Height>
                               <Width>2.55731cm</Width>
                               <ZIndex>35</ZIndex>
@@ -1692,7 +1693,7 @@ SHIPMENT --- LTL is 1 to 6 pallets /// PARTIAL TRUCKLOAD is 7 to 12 pallets</Val
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>5.82749in</Top>
+                              <Top>4.93999in</Top>
                               <Left>5.46946in</Left>
                               <Height>0.20312cm</Height>
                               <Width>2.08178cm</Width>
@@ -1729,7 +1730,7 @@ SHIPMENT --- LTL is 1 to 6 pallets /// PARTIAL TRUCKLOAD is 7 to 12 pallets</Val
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox49</rd:DefaultName>
-                              <Top>5.91627cm</Top>
+                              <Top>5.36594cm</Top>
                               <Left>4.97495cm</Left>
                               <Height>0.60325cm</Height>
                               <Width>1.37158cm</Width>
@@ -1762,7 +1763,7 @@ SHIPMENT --- LTL is 1 to 6 pallets /// PARTIAL TRUCKLOAD is 7 to 12 pallets</Val
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox49</rd:DefaultName>
-                              <Top>5.91627cm</Top>
+                              <Top>5.3871cm</Top>
                               <Left>6.38181cm</Left>
                               <Height>0.635cm</Height>
                               <Width>1.11758cm</Width>
@@ -1798,7 +1799,7 @@ SHIPMENT --- LTL is 1 to 6 pallets /// PARTIAL TRUCKLOAD is 7 to 12 pallets</Val
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox49</rd:DefaultName>
-                              <Top>5.91627cm</Top>
+                              <Top>5.3871cm</Top>
                               <Left>7.56131cm</Left>
                               <Height>0.60325cm</Height>
                               <Width>1.05408cm</Width>
@@ -1831,7 +1832,7 @@ SHIPMENT --- LTL is 1 to 6 pallets /// PARTIAL TRUCKLOAD is 7 to 12 pallets</Val
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox49</rd:DefaultName>
-                              <Top>5.91627cm</Top>
+                              <Top>5.3871cm</Top>
                               <Left>8.69464cm</Left>
                               <Height>0.635cm</Height>
                               <Width>1.11758cm</Width>
@@ -1878,7 +1879,7 @@ SHIPMENT --- LTL is 1 to 6 pallets /// PARTIAL TRUCKLOAD is 7 to 12 pallets</Val
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox49</rd:DefaultName>
-                              <Top>5.91627cm</Top>
+                              <Top>5.3871cm</Top>
                               <Left>9.79105cm</Left>
                               <Height>0.635cm</Height>
                               <Width>1.11758cm</Width>
@@ -1930,7 +1931,7 @@ SHIPMENT --- LTL is 1 to 6 pallets /// PARTIAL TRUCKLOAD is 7 to 12 pallets</Val
             <DataSetName>DataSet_Result</DataSetName>
             <Top>0.03in</Top>
             <Left>0.00083in</Left>
-            <Height>5.96302in</Height>
+            <Height>5.01996in</Height>
             <Width>8.06626in</Width>
             <Style>
               <Border>
@@ -1939,13 +1940,13 @@ SHIPMENT --- LTL is 1 to 6 pallets /// PARTIAL TRUCKLOAD is 7 to 12 pallets</Val
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>15.22227cm</Height>
+        <Height>12.82689cm</Height>
         <Style />
       </Body>
       <Width>20.49041cm</Width>
       <Page>
         <PageFooter>
-          <Height>3.25cm</Height>
+          <Height>3cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1956,7 +1957,7 @@ SHIPMENT --- LTL is 1 to 6 pallets /// PARTIAL TRUCKLOAD is 7 to 12 pallets</Val
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Constant">WRAPPER:</Value>
+                      <Value>=Fields!Wrapper_Caption.Value</Value>
                       <Style>
                         <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -1967,6 +1968,7 @@ SHIPMENT --- LTL is 1 to 6 pallets /// PARTIAL TRUCKLOAD is 7 to 12 pallets</Val
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
+              <Top>0in</Top>
               <Left>0.06055in</Left>
               <Height>0.25in</Height>
               <Width>0.975in</Width>
@@ -2000,6 +2002,7 @@ SHIPMENT --- LTL is 1 to 6 pallets /// PARTIAL TRUCKLOAD is 7 to 12 pallets</Val
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
+              <Top>0in</Top>
               <Left>1.03347in</Left>
               <Height>0.25in</Height>
               <Width>4.35958in</Width>
@@ -2025,7 +2028,7 @@ SHIPMENT --- LTL is 1 to 6 pallets /// PARTIAL TRUCKLOAD is 7 to 12 pallets</Val
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Constant">VERIFIER -</Value>
+                      <Value>=Fields!Verifier_Caption.Value</Value>
                       <Style>
                         <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -2037,7 +2040,7 @@ SHIPMENT --- LTL is 1 to 6 pallets /// PARTIAL TRUCKLOAD is 7 to 12 pallets</Val
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>0.34792in</Top>
+              <Top>0.27709in</Top>
               <Left>0.05971in</Left>
               <Height>0.25in</Height>
               <Width>0.97584in</Width>
@@ -2071,7 +2074,7 @@ SHIPMENT --- LTL is 1 to 6 pallets /// PARTIAL TRUCKLOAD is 7 to 12 pallets</Val
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>0.34792in</Top>
+              <Top>0.28542in</Top>
               <Left>1.05763in</Left>
               <Height>0.25in</Height>
               <Width>1.49792in</Width>
@@ -2097,7 +2100,7 @@ SHIPMENT --- LTL is 1 to 6 pallets /// PARTIAL TRUCKLOAD is 7 to 12 pallets</Val
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>DATE -</Value>
+                      <Value>=Fields!VerifierDate_Caption.Value</Value>
                       <Style>
                         <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -2109,7 +2112,7 @@ SHIPMENT --- LTL is 1 to 6 pallets /// PARTIAL TRUCKLOAD is 7 to 12 pallets</Val
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>0.36042in</Top>
+              <Top>0.29792in</Top>
               <Left>3.25971in</Left>
               <Height>0.25in</Height>
               <Width>0.6125in</Width>
@@ -2143,7 +2146,7 @@ SHIPMENT --- LTL is 1 to 6 pallets /// PARTIAL TRUCKLOAD is 7 to 12 pallets</Val
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>0.36042in</Top>
+              <Top>0.29792in</Top>
               <Left>3.89513in</Left>
               <Height>0.25in</Height>
               <Width>1.49792in</Width>
@@ -2169,7 +2172,7 @@ SHIPMENT --- LTL is 1 to 6 pallets /// PARTIAL TRUCKLOAD is 7 to 12 pallets</Val
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Constant">NOTES:</Value>
+                      <Value>=Fields!Notes_Caption.Value</Value>
                       <Style>
                         <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -2180,7 +2183,7 @@ SHIPMENT --- LTL is 1 to 6 pallets /// PARTIAL TRUCKLOAD is 7 to 12 pallets</Val
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>0.68333in</Top>
+              <Top>0.59583in</Top>
               <Left>0.05888in</Left>
               <Height>0.25in</Height>
               <Width>0.78031in</Width>
@@ -2214,9 +2217,9 @@ SHIPMENT --- LTL is 1 to 6 pallets /// PARTIAL TRUCKLOAD is 7 to 12 pallets</Val
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>0.68333in</Top>
+              <Top>0.59583in</Top>
               <Left>0.87095in</Left>
-              <Height>0.25in</Height>
+              <Height>0.51027in</Height>
               <Width>7.17114in</Width>
               <ZIndex>7</ZIndex>
               <Style>
@@ -2387,6 +2390,9 @@ End Function
         </Field>
         <Field Name="Verifier_Date">
           <DataField>Verifier_Date</DataField>
+        </Field>
+        <Field Name="VerifierDate_Caption">
+          <DataField>VerifierDate_Caption</DataField>
         </Field>
         <Field Name="CompanyInfoPicture">
           <DataField>CompanyInfoPicture</DataField>
