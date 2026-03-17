@@ -16,48 +16,49 @@ report 51601 "NDS Order Shipping Print"
             column(No_Caption; FieldCaption("No.")) { }
 
             column(SourceDocNo; "Source Document No.") { }
-            column(SourceDocNo_Caption; FieldCaption("Source Document No.")) { }
+            column(SourceDocNo_Caption; OrderLbl) { }
 
             column(CustomerName; "Customer Name") { }
-            column(CustomerName_Caption; FieldCaption("Customer Name")) { }
+            column(CustomerName_Caption; CustomerNameLbl) { }
 
             column(Salesperson; "Salesperson") { }
-            column(Salesperson_Caption; FieldCaption("Salesperson")) { }
+            column(Salesperson_Caption; SalespersonLbl) { }
 
             column(OrderDate; Format("Order Date")) { }
-            column(OrderDate_Caption; FieldCaption("Order Date")) { }
+            column(OrderDate_Caption; OrderDateLbl) { }
 
             column(ShippingMethod; "Shipping Method") { }
-            column(ShippingMethod_Caption; FieldCaption("Shipping Method")) { }
+            column(ShippingMethod_Caption; ShippingMethodLbl) { }
 
             column(TempControl; TempControlVar) { }
-            column(TempControl_Caption; FieldCaption("Temp Control")) { }
+            column(TempControl_Caption; TempControlLbl) { }
 
             column(PreStack; "Pre-Stack Pallet Count") { }
-            column(PreStack_Caption; FieldCaption("Pre-Stack Pallet Count")) { }
+            column(PreStack_Caption; PreStackPalletCountLbl) { }
 
             column(PostStack; "Post-Stack Pallet Count") { }
-            column(PostStack_Caption; FieldCaption("Post-Stack Pallet Count")) { }
+            column(PostStack_Caption; PostStackPalletCountLbl) { }
 
             column(Stacker; "Stacker Assigned") { }
-            column(Stacker_Caption; FieldCaption("Stacker Assigned")) { }
+            column(Stacker_Caption; StackerAssignedLbl) { }
 
             column(ReviewedBy; "Reviewed By") { }
-            column(ReviewedBy_Caption; FieldCaption("Reviewed By")) { }
+            column(ReviewedBy_Caption; ReviewedByLbl) { }
 
             column(Wrapper; "Wrapper") { }
-            column(Wrapper_Caption; FieldCaption("Wrapper")) { }
+            column(Wrapper_Caption; WrapperLbl) { }
 
             column(Verifier; "Verifier") { }
-            column(Verifier_Caption; FieldCaption("Verifier")) { }
+            column(Verifier_Caption; VerifierLbl) { }
 
             column(Notes; NotesTxt) { }
             column(Lift_Gate; BoolToYN("Lift Gate")) { }
             column(Notify_Appointment; BoolToYN("Notify Appointment")) { }
             column(Other; BoolToYN(Other)) { }
-            column(Notes_Caption; FieldCaption("Notes")) { }
+            column(Notes_Caption; NotesLbl) { }
             column(Alternate_Shipping_Address; BoolToYN("Alternate Shipping Address")) { }
             column(Verifier_Date; Format("Verifier Date")) { }
+            column(VerifierDate_Caption; VerifierDateLbl) { }
             column(CompanyInfoPicture; CompanyInfo.Picture) { }
 
             dataitem(Lines; "NDS Order Shipping Line")
@@ -118,4 +119,18 @@ report 51601 "NDS Order Shipping Print"
     var
         NotesTxt: Text;
         TempControlVar: Integer;
+        CustomerNameLbl: Label 'CUSTOMER NAME:';
+        SalespersonLbl: Label 'SALESPERSON:';
+        OrderLbl: Label 'ORDER -';
+        OrderDateLbl: Label 'DATE:';
+        ShippingMethodLbl: Label 'SHIPPING METHOD -';
+        TempControlLbl: Label 'TEMP CONTROL';
+        PreStackPalletCountLbl: Label 'PRE-STACK PALLET COUNT -';
+        StackerAssignedLbl: Label 'STACKER ASSIGNED:';
+        PostStackPalletCountLbl: Label 'POST-STACK PALLET COUNT -';
+        ReviewedByLbl: Label 'REVIEWED BY:';
+        WrapperLbl: Label 'WRAPPER:';
+        VerifierLbl: Label 'VERIFIER -';
+        VerifierDateLbl: Label 'DATE -';
+        NotesLbl: Label 'NOTES:';
 }
