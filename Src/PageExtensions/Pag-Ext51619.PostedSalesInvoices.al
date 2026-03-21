@@ -11,4 +11,19 @@ pageextension 51619 "NDS Posted Sales Invoices" extends "Posted Sales Invoices"
             }
         }
     }
+    actions
+    {
+        addlast(Navigation)
+        {
+            action("NDS ShippingForms")
+            {
+                Caption = 'Shipping Forms';
+                Image = List;
+                ApplicationArea = All;
+
+                RunObject = page "NDS Order Shipping List";
+                RunPageLink = "Source Document No." = field("Order No.");
+            }
+        }
+    }
 }

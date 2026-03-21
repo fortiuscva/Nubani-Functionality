@@ -11,4 +11,19 @@ pageextension 51620 "NDS Posted Sales Shipments" extends "Posted Sales Shipments
             }
         }
     }
+    actions
+    {
+        addlast(Navigation)
+        {
+            action("NDS ShippingForms")
+            {
+                Caption = 'Shipping Forms';
+                Image = List;
+                ApplicationArea = All;
+
+                RunObject = page "NDS Order Shipping List";
+                RunPageLink = "Source Document No." = field("Order No.");
+            }
+        }
+    }
 }
