@@ -16,4 +16,14 @@ table 51603 "NDS Shipping Setup"
     {
         key(PK; "Primary Key") { Clustered = true; }
     }
+
+    procedure GetRecordOnce(): Record "NDS Shipping Setup"
+    begin
+        if not Get('') then begin
+            Init();
+            "Primary Key" := '';
+            Insert();
+        end;
+        exit(Rec);
+    end;
 }
