@@ -2,7 +2,7 @@ pageextension 51622 "NDS SalesOrderExt" extends "Sales Order"
 {
     actions
     {
-        addlast(Processing)
+        addafter("Archive Document")
         {
             action("NDS Order Shipping")
             {
@@ -11,6 +11,12 @@ pageextension 51622 "NDS SalesOrderExt" extends "Sales Order"
                 RunObject = Page "NDS Order Shipping List";
                 RunPageLink =
         "Source Document No." = field("No.");
+            }
+        }
+        addlast(Promoted)
+        {
+            actionref(OrderShipping; "NDS Order Shipping")
+            {
             }
         }
     }

@@ -167,4 +167,16 @@ table 51604 "NDS Order Shipping Header"
             Clustered = true;
         }
     }
+
+    trigger OnInsert()
+    var
+        SalesReceibalesSetup: Record "Sales & Receivables Setup";
+        NoSeries: Codeunit "No. Series";
+    begin
+        if "No." <> xRec."No." then begin
+            SalesReceibalesSetup.Get();
+            NoSeries.TestManual(SalesReceibalesSetup."Shipping Form Nos.");
+            "No. Series" := '';
+        end;
+    end;
 }

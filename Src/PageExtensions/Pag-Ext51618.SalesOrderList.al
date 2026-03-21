@@ -10,4 +10,24 @@ pageextension 51618 "NDS Sales Order List" extends "Sales Order List"
             }
         }
     }
+    actions
+    {
+        addafter("Create Inventor&y Put-away/Pick")
+        {
+            action("NDS Order Shipping")
+            {
+                ApplicationArea = All;
+                Caption = 'Order Shipping';
+                RunObject = Page "NDS Order Shipping List";
+                RunPageLink =
+        "Source Document No." = field("No.");
+            }
+        }
+        addlast(Promoted)
+        {
+            actionref(OrderShipping; "NDS Order Shipping")
+            {
+            }
+        }
+    }
 }
