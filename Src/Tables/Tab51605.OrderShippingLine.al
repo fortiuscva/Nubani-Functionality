@@ -1,20 +1,45 @@
 table 51605 "NDS Order Shipping Line"
 {
-    DataClassification = CustomerContent;
+    Caption = 'Order Shipping Line';
+    DataClassification = ToBeClassified;
 
     fields
     {
-        field(1; "Document No."; Code[20]) { }
+        field(1; "Document No."; Code[20])
+        {
+            Caption = 'Document No.';
+            DataClassification = ToBeClassified;
+        }
 
-        field(2; "Line No."; Integer) { }
+        field(2; "Line No."; Integer)
+        {
+            Caption = 'Line No.';
+            DataClassification = ToBeClassified;
+        }
 
-        field(10; Length; Decimal) { }
+        field(10; Length; Decimal)
+        {
+            Caption = 'Length';
+            DataClassification = ToBeClassified;
+        }
 
-        field(11; Width; Decimal) { }
+        field(11; Width; Decimal)
+        {
+            Caption = 'Width';
+            DataClassification = ToBeClassified;
+        }
 
-        field(12; Height; Decimal) { }
+        field(12; Height; Decimal)
+        {
+            Caption = 'Height';
+            DataClassification = ToBeClassified;
+        }
 
-        field(13; Weight; Decimal) { }
+        field(13; Weight; Decimal)
+        {
+            Caption = 'Weight';
+            DataClassification = ToBeClassified;
+        }
     }
 
     keys
