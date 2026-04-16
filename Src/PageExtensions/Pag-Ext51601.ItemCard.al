@@ -12,6 +12,14 @@ pageextension 51601 "NDS Item Card" extends "Item Card"
             Visible = IsBlockedvisible;
             Editable = IsBlockedEditable;
         }
+        addafter("Item Category Code")
+        {
+            field("NDS Season"; Rec."NDS Season")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Season field.', Comment = '%';
+            }
+        }
 
     }
     trigger OnOpenPage()
