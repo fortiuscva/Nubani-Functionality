@@ -12,6 +12,14 @@ pageextension 51602 "NDS Item List" extends "Item List"
             Visible = IsBlockedvisible;
             Editable = IsBlockedEditable;
         }
+        addlast(Control1)
+        {
+            field("NDS Season"; Rec."NDS Season")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Season field.', Comment = '%';
+            }
+        }
     }
 
     trigger OnOpenPage()
