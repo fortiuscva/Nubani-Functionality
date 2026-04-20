@@ -20,6 +20,8 @@ report 51602 "NDS Auto Lot Assignment"
                 TrackingSpec: Record "Tracking Specification";
                 ItemTrackingVal: integer;
             begin
+                if LotNo = '' then
+                    Error('Lot No should not be empty');
                 Clear(ForReservEntry);
                 Clear(TrackingSpec);
                 ItemTrackingVal := FindItemTrackingCode(PurchLine."No.");
