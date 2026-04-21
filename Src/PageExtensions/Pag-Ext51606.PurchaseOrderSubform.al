@@ -25,6 +25,25 @@ pageextension 51606 "NDS Purchase Order Subform" extends "Purchase Order Subform
             end;
         }
     }
+    actions
+    {
+        addafter(CreateSalesOrder)
+        {
+            action("NDS Auto Lot")
+            {
+                ApplicationArea = All;
+                Image = OrderTracking;
+                Caption = 'Auto Lot Assignment';
+                trigger OnAction()
+                var
+                    AutoLotAssignment: Report "NDS Auto Lot Assignment";
+                begin
+                    AutoLotAssignment.SetDocumentNo(Rec."Document No.");
+                    AutoLotAssignment.RunModal();
+                end;
+            }
+        }
+    }
     trigger OnOpenPage()
     var
         PermissionCode: Record "NDS Permission Code";
