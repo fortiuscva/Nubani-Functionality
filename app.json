@@ -2,7 +2,7 @@
   "id": "3f462546-390d-459b-aaa1-6f93c779f4fb",
   "name": "Nubani Functionality",
   "publisher": "Nubani",
-  "version": "1.0.0.13",
+  "version": "1.0.0.14",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -10,7 +10,14 @@
   "help": "",
   "url": "",
   "logo": "",
-  "dependencies": [],
+  "dependencies": [
+     {
+      "id": "476b3f8a-f963-4dc8-b268-78f041abfeba",
+      "name": "NUBANI_UPG",
+      "version": "1.0.0.51",
+      "publisher": "SSI"
+    }
+  ],
   "screenshots": [],
   "platform": "1.0.0.0",
   "application": "26.0.0.0",
