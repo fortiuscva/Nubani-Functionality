@@ -16,11 +16,14 @@ codeunit 51605 "NDS Pallet Pick Logic"
         var WarehouseActivityHeader: Record "Warehouse Activity Header";
         var WarehouseRequest: Record "Warehouse Request")
     var
-        AvailableBinContent: Record "Bin Content";
+        BinContent: Record "Bin Content";
+        SalesLine: Record "Sales Line";
         Item: Record Item;
-        AvailablePalletQuantity: Decimal;
-        EligiblePalletBinsFilter: Text;
-        QuantityPerPallet: Decimal;
+        QtyPerPallet: Decimal;
+        RemainingPalletQty: Decimal;
+        RemainingCaseQty: Decimal;
+        AvailableQty: Decimal;
+        SelectedBins: Text;
     begin
         if WarehouseActivityHeader.Type <> WarehouseActivityHeader.Type::"Invt. Pick" then
             exit;
@@ -28,27 +31,61 @@ codeunit 51605 "NDS Pallet Pick Logic"
         if not Item.Get(WarehouseActivityLine."Item No.") then
             exit;
 
-        QuantityPerPallet := Item."Qty.  Per Pallet";
+        QtyPerPallet := Item."Qty.  Per Pallet";
 
-        if QuantityPerPallet <= 0 then
+        if QtyPerPallet <= 0 then
             exit;
 
-        AvailableBinContent.Copy(FromBinContent);
+        SalesLine.SetRange("Document Type", SalesLine."Document Type"::Order);
+        SalesLine.SetRange("Document No.", WarehouseRequest."Source No.");
+        SalesLine.SetRange("No.", WarehouseActivityLine."Item No.");
 
-        if AvailableBinContent.FindSet() then
+        if not SalesLine.FindFirst() then
+            exit;
+
+        RemainingPalletQty :=
+            Round(SalesLine.Quantity / QtyPerPallet, 1, '<') * QtyPerPallet;
+
+        RemainingCaseQty :=
+            SalesLine.Quantity - RemainingPalletQty;
+
+        BinContent.Copy(FromBinContent);
+        if BinContent.FindSet() then
             repeat
-                AvailablePalletQuantity := AvailableBinContent.CalcQtyAvailToPick(0);
+                AvailableQty := BinContent.CalcQtyAvailToPick(0);
 
-                if AvailablePalletQuantity >= QuantityPerPallet then begin
-                    if EligiblePalletBinsFilter = '' then
-                        EligiblePalletBinsFilter := AvailableBinContent."Bin Code"
+                if (AvailableQty >= QtyPerPallet) and (RemainingPalletQty > 0) then begin
+                    if SelectedBins = '' then
+                        SelectedBins := BinContent."Bin Code"
                     else
-                        EligiblePalletBinsFilter += '|' + AvailableBinContent."Bin Code";
-                end;
-            until AvailableBinContent.Next() = 0;
+                        SelectedBins += '|' + BinContent."Bin Code";
 
-        if EligiblePalletBinsFilter <> '' then
-            FromBinContent.SetFilter("Bin Code", EligiblePalletBinsFilter);
+                    RemainingPalletQty -=
+                        Round(AvailableQty / QtyPerPallet, 1, '<') * QtyPerPallet;
+                end;
+            until (BinContent.Next() = 0) or (RemainingPalletQty <= 0);
+
+        if RemainingCaseQty > 0 then begin
+            BinContent.Reset();
+            BinContent.Copy(FromBinContent);
+            if BinContent.FindSet() then
+                repeat
+                    AvailableQty := BinContent.CalcQtyAvailToPick(0);
+
+                    if (AvailableQty > 0) and
+                       (StrPos(SelectedBins, BinContent."Bin Code") = 0)
+                    then begin
+                        SelectedBins += '|' + BinContent."Bin Code";
+                        break;
+                    end;
+                until BinContent.Next() = 0;
+        end;
+
+        if SelectedBins <> '' then begin
+            FromBinContent.SetFilter("Bin Code", SelectedBins);
+            FromBinContent.SetCurrentKey("Quantity (Base)");
+            FromBinContent.Ascending(false);
+        end;
     end;
 
 
@@ -66,43 +103,31 @@ codeunit 51605 "NDS Pallet Pick Logic"
         var QtyAvailToPickBase: Decimal)
     var
         Item: Record Item;
-        QuantityPerPallet: Decimal;
-        FullPalletQuantityBase: Decimal;
+        QtyPerPallet: Decimal;
     begin
         if not Item.Get(FromBinContent."Item No.") then
             exit;
 
-        QuantityPerPallet := Item."Qty.  Per Pallet";
+        QtyPerPallet := Item."Qty.  Per Pallet";
 
-        if QuantityPerPallet <= 0 then
+        if (QtyPerPallet <= 0) or
+           (RemQtyToPickBase < QtyPerPallet)
+        then
             exit;
 
-        if RemQtyToPickBase < QuantityPerPallet then
-            exit;
-
-        QtyAvailToPickBase := FromBinContent.CalcQtyAvailToPick(0);
-
-        FullPalletQuantityBase :=
+        QtyAvailToPickBase :=
             Round(
-                QtyAvailToPickBase / QuantityPerPallet,
+                FromBinContent.CalcQtyAvailToPick(0) / QtyPerPallet,
                 1,
                 '<')
-            * QuantityPerPallet;
+            * QtyPerPallet;
 
-        if FullPalletQuantityBase <= 0 then
-            exit;
-
-        if FullPalletQuantityBase > RemQtyToPickBase then
-            FullPalletQuantityBase :=
+        if QtyAvailToPickBase > RemQtyToPickBase then
+            QtyAvailToPickBase :=
                 Round(
-                    RemQtyToPickBase / QuantityPerPallet,
+                    RemQtyToPickBase / QtyPerPallet,
                     1,
                     '<')
-                * QuantityPerPallet;
-
-        if FullPalletQuantityBase <= 0 then
-            exit;
-
-        QtyAvailToPickBase := FullPalletQuantityBase;
+                * QtyPerPallet;
     end;
 }
