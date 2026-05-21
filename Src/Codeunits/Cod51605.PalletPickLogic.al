@@ -50,11 +50,13 @@ codeunit 51605 "NDS Pallet Pick Logic"
             SalesLine.Quantity - RemainingPalletQty;
 
         BinContent.Copy(FromBinContent);
+
         if BinContent.FindSet() then
             repeat
                 AvailableQty := BinContent.CalcQtyAvailToPick(0);
 
                 if (AvailableQty >= QtyPerPallet) and (RemainingPalletQty > 0) then begin
+
                     if SelectedBins = '' then
                         SelectedBins := BinContent."Bin Code"
                     else
@@ -68,6 +70,7 @@ codeunit 51605 "NDS Pallet Pick Logic"
         if RemainingCaseQty > 0 then begin
             BinContent.Reset();
             BinContent.Copy(FromBinContent);
+
             if BinContent.FindSet() then
                 repeat
                     AvailableQty := BinContent.CalcQtyAvailToPick(0);
@@ -75,7 +78,12 @@ codeunit 51605 "NDS Pallet Pick Logic"
                     if (AvailableQty > 0) and
                        (StrPos(SelectedBins, BinContent."Bin Code") = 0)
                     then begin
-                        SelectedBins += '|' + BinContent."Bin Code";
+
+                        if SelectedBins = '' then
+                            SelectedBins := BinContent."Bin Code"
+                        else
+                            SelectedBins += '|' + BinContent."Bin Code";
+
                         break;
                     end;
                 until BinContent.Next() = 0;
