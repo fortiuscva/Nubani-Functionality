@@ -20,7 +20,7 @@ codeunit 51605 "NDS Pallet Pick Logic"
         SalesLine: Record "Sales Line";
         Item: Record Item;
         QtyPerPallet: Decimal;
-        RemainingPalletQty: Decimal;
+        RemainingPalletQtyInCases: Decimal;
         RemainingCaseQty: Decimal;
         AvailableQty: Decimal;
         SelectedBins: Text;
@@ -43,11 +43,11 @@ codeunit 51605 "NDS Pallet Pick Logic"
         if not SalesLine.FindFirst() then
             exit;
 
-        RemainingPalletQty :=
-            Round(SalesLine.Quantity / QtyPerPallet, 1, '<') * QtyPerPallet;
+        RemainingPalletQtyInCases :=
+            Round(SalesLine."Qty. to Ship (Base)" / QtyPerPallet, 1, '<') * QtyPerPallet;
 
         RemainingCaseQty :=
-            SalesLine.Quantity - RemainingPalletQty;
+            SalesLine."Qty. to Ship (Base)" - RemainingPalletQtyInCases;
 
         BinContent.Copy(FromBinContent);
 
@@ -55,17 +55,19 @@ codeunit 51605 "NDS Pallet Pick Logic"
             repeat
                 AvailableQty := BinContent.CalcQtyAvailToPick(0);
 
-                if (AvailableQty >= QtyPerPallet) and (RemainingPalletQty > 0) then begin
+                if (AvailableQty >= QtyPerPallet) and
+                   (RemainingPalletQtyInCases > 0)
+                then begin
 
                     if SelectedBins = '' then
                         SelectedBins := BinContent."Bin Code"
                     else
                         SelectedBins += '|' + BinContent."Bin Code";
 
-                    RemainingPalletQty -=
+                    RemainingPalletQtyInCases -=
                         Round(AvailableQty / QtyPerPallet, 1, '<') * QtyPerPallet;
                 end;
-            until (BinContent.Next() = 0) or (RemainingPalletQty <= 0);
+            until (BinContent.Next() = 0) or (RemainingPalletQtyInCases <= 0);
 
         if RemainingCaseQty > 0 then begin
             BinContent.Reset();
@@ -84,9 +86,12 @@ codeunit 51605 "NDS Pallet Pick Logic"
                         else
                             SelectedBins += '|' + BinContent."Bin Code";
 
-                        break;
+                        if AvailableQty >= RemainingCaseQty then
+                            RemainingCaseQty := 0
+                        else
+                            RemainingCaseQty -= AvailableQty;
                     end;
-                until BinContent.Next() = 0;
+                until (BinContent.Next() = 0) or (RemainingCaseQty <= 0);
         end;
 
         if SelectedBins <> '' then begin
