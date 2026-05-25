@@ -66,8 +66,20 @@ codeunit 51605 "NDS Pallet Pick Logic"
 
                     RemainingPalletQtyInCases -=
                         Round(AvailableQty / QtyPerPallet, 1, '<') * QtyPerPallet;
+
+                    if (AvailableQty mod QtyPerPallet <> 0) and
+                       (RemainingPalletQtyInCases > 0)
+                    then begin
+                        RemainingCaseQty :=
+                            SalesLine."Qty. to Ship (Base)" - AvailableQty;
+                        break;
+                    end;
                 end;
+
             until (BinContent.Next() = 0) or (RemainingPalletQtyInCases <= 0);
+
+        if RemainingCaseQty = 0 then
+            RemainingCaseQty := RemainingPalletQtyInCases;
 
         if RemainingCaseQty > 0 then begin
             BinContent.Reset();
@@ -86,11 +98,10 @@ codeunit 51605 "NDS Pallet Pick Logic"
                         else
                             SelectedBins += '|' + BinContent."Bin Code";
 
-                        if AvailableQty >= RemainingCaseQty then
-                            RemainingCaseQty := 0
-                        else
-                            RemainingCaseQty -= AvailableQty;
+                        RemainingCaseQty := 0;
+                        break;
                     end;
+
                 until (BinContent.Next() = 0) or (RemainingCaseQty <= 0);
         end;
 
