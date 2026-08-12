@@ -18,4 +18,20 @@ codeunit 51603 "NDS Events and Subsribers"
     begin
         ShowDialog := 0;
     end;
+
+    [EventSubscriber(ObjectType::Page, Page::"Item Tracking Lines", 'OnQueryClosePageOnBeforeConfirmClosePage', '', false, false)]
+    local procedure ItemTrackingLinesOnQueryClosePageOnBeforeConfirmClosePage(var TrackingSpecification: Record "Tracking Specification"; var IsHandled: Boolean; CurrentRunMode: Enum "Item Tracking Run Mode"; var Result: Boolean)
+    var
+        AvailabilityWarningsErr: Label 'You do not have enough inventory to meet the demand for this Sales Order line.\\ Please reduce the quantity assigned to the Lot No. or select another Lot No. before leaving Item Tracking Lines.';
+    begin
+        /* if TrackingSpecification."Source Subtype" <> Enum::"Sales Document Type"::Order.AsInteger()
+        then
+            exit;
+
+        if TrackingSpecification."Source Type" <> Database::"Sales Line"
+        then
+            exit; */
+        Error(AvailabilityWarningsErr);
+    end;
+
 }
