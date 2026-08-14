@@ -38,3 +38,4 @@ report 51603 "NDS Update Bank Ledger Entry"
         UpdatedCount: Integer;
 
 }
+
